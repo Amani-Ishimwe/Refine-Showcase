@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #FDFCFB;
+  --color-foreground: #1A1A1A;
+  --color-accent: #4A5D4E;
+  /* Olive */
+  --color-muted: #6B7280;
+  --color-border: #E5E7EB;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --max-width-site: 1120px;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased font-sans;
+  }
+}
+
+.selection\:bg-accent::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+@utility container-custom {
+  max-width: var(--max-width-site);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@utility section-padding {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
