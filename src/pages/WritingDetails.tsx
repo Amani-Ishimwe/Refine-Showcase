@@ -34,7 +34,7 @@ const WritingDetails: React.FC = () => {
                     </p>
                     <div className="space-y-12 text-sm leading-relaxed text-foreground/80 font-normal">
                         <p>{article.excerpt}</p>
-                        <div className="h-[1px] w-12 bg-border/40" />
+                        <div className="h-px w-12 bg-border/40" />
                         <p className="text-xs text-muted leading-relaxed italic">
                             [ Full article content is available in the internal knowledge base.
                             This brief serves as a high-level conceptual anchor for the portfolio registry. ]

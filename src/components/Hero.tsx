@@ -8,14 +8,14 @@ const Hero: React.FC = () => {
       <div className="flex flex-col gap-8">
         <div className="flex items-center gap-3">
           <span className="availability-dot" />
-          <span className="label !mb-0 text-foreground/50">Available for Q1 2026</span>
+          <span className="label mb-0! text-foreground/50">Available for Q1 2026</span>
         </div>
 
-        <h1 className="text-4xl md:text-6xl font-medium tracking-tight leading-[1.1] max-w-[800px]">
+        <h1 className="text-4xl md:text-6xl font-medium tracking-tight leading-[1.1] max-w-200">
           I design, build, document, and manage digital products — <span className="font-serif-italic text-accent">from idea to impact</span>.
         </h1>
 
-        <p className="text-lg md:text-xl text-foreground/70 leading-relaxed max-w-[600px]">
+        <p className="text-lg md:text-xl text-foreground/70 leading-relaxed max-w-150">
           Bridging the gap between design thinking, robust software engineering, and disciplined execution.
         </p>
 

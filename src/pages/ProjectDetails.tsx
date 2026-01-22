@@ -32,7 +32,7 @@ const ProjectDetails: React.FC = () => {
                 </header>
 
                 <div className="space-y-24">
-                    <div className="aspect-[21/9] bg-muted/5 border border-border/40 grayscale opacity-90 rounded-sm overflow-hidden">
+                    <div className="aspect-21/9 bg-muted/5 border border-border/40 grayscale opacity-90 rounded-sm overflow-hidden">
                         <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
                     </div>
 
