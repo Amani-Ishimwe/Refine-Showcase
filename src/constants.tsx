@@ -78,7 +78,7 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
       'Lightweight documentation'
     ],
     outcome: 'A clear, validated product direction.',
-    pricing: '💰 Flexible range (entry-level)'
+    pricing: '$400'
   },
   {
     id: 'design-exp',
@@ -93,7 +93,7 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
       'Developer handoff notes'
     ],
     outcome: 'A usable, scalable, and professional product design.',
-    pricing: '💰💰 Mid-range'
+    pricing: '$1,000'
   },
   {
     id: 'build',
@@ -109,7 +109,7 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
       'Technical documentation'
     ],
     outcome: 'A working, deployable product.',
-    pricing: '💰💰💰 Project-based'
+    pricing: '$2,500'
   },
   {
     id: 'end-to-end',
@@ -126,7 +126,7 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
       'Launch support'
     ],
     outcome: 'A complete, well-designed, well-built product with long-term clarity.',
-    pricing: '💰💰💰💰 Custom / premium',
+    pricing: '$5,000',
     isFlagship: true
   },
   {
@@ -142,7 +142,7 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
       'Onboarding documentation'
     ],
     outcome: 'A product that others can understand, maintain, and scale.',
-    pricing: '💰–💰💰 Flexible'
+    pricing: '$700'
   },
   {
     id: 'advisory',
@@ -157,7 +157,7 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
       'Technical guidance'
     ],
     outcome: 'Better decisions, fewer mistakes, faster progress.',
-    pricing: '🔁 Monthly retainer (flexible)'
+    pricing: '$400 / month'
   }
 ];
 

@@ -1,81 +1,58 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PROJECTS } from '../constants';
 
 const SelectedWork: React.FC = () => {
-    const projects = [
-        {
-            title: "FlowOps: Intelligent Resource Management",
-            problem: "Enterprise teams struggled with visibility into engineering bandwidth, leading to burnout and missed deadlines.",
-            constraints: "12 weeks to launch MVP. Integration with legacy Jira instances. Minimal impact on developer workflow.",
-            role: "Lead Product Engineer (Design + Frontend Architecture)",
-            process: "Conducted stakeholder interviews → Iterative Figma prototyping → React/TS development with custom scheduling engine → Full system documentation for internal handoff.",
-            outcome: "Reduced resource planning time by 40% across three test divisions. Successfully migrated to production with 100% test coverage.",
-            lesson: "In a data-heavy tool, information hierarchy is more important than visual flair. Clarity is the ultimate feature."
-        },
-        {
-            title: "Nexus Design System for FinTech",
-            problem: "Inconsistent UI across 14 internal tools leading to significant technical debt and design-to-code friction.",
-            constraints: "Must support multiple frameworks (React, Vue). Strict accessibility requirements (WCAG 2.1 AA).",
-            role: "Product Designer & DS Lead",
-            process: "Audited existing patterns → Defined core design tokens → Built headless component library → Authored comprehensive documentation site for engineering teams.",
-            outcome: "Released v1 documentation. Reduced frontend development time by 30% for new internal tools.",
-            lesson: "A design system is a living product. Success is measured by adoption, not by the number of components."
-        }
-    ];
-
     return (
-        <section id="work" className="container-custom section-padding">
-            <div className="mb-16">
-                <span className="font-mono text-xs uppercase tracking-widest text-accent mb-4 block">01 / Selected Work</span>
-                <h2 className="text-3xl font-medium">Focused on thinking and execution.</h2>
+        <section id="work" className="memo-container section-padding">
+            <div className="mb-12">
+                <span className="label">Index / 02</span>
+                <h2 className="text-3xl font-medium font-serif-italic">Selected Work</h2>
+                <p className="text-sm text-foreground/60 mt-2 max-w-sm">
+                    A selection of projects focusing on structural design and technical execution.
+                </p>
             </div>
 
-            <div className="space-y-48">
-                {projects.map((project, idx) => {
-                    const id = idx === 0 ? "flowops" : "nexus";
-                    return (
-                        <div key={idx} className={`flex flex-col ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-20 border-l border-border pl-8 lg:pl-0 lg:border-l-0 relative`}>
-                            {/* Image Column */}
-                            <div className="lg:w-5/12">
-                                <div className="aspect-[3/2] bg-muted/20 overflow-hidden border border-border/40">
-                                    <img
-                                        src={idx === 0 ? "/flowops_dashboard_mockup.png" : "/nexus_design_system_mockup.png"}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                                    />
-                                </div>
+            <div className="space-y-24">
+                {PROJECTS.map((project) => (
+                    <article key={project.id} className="flex flex-col gap-10 group">
+                        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-border/60 pb-6 gap-4">
+                            <div>
+                                <h3 className="text-2xl font-medium">{project.title}</h3>
+                                <span className="text-[10px] font-mono text-muted uppercase tracking-wider block mt-2">{project.role} — {project.year}</span>
+                            </div>
+                            <Link
+                                to={`/project/${project.id}`}
+                                className="text-[10px] font-mono uppercase tracking-[0.25em] underline underline-offset-8 decoration-border/60 hover:decoration-foreground transition-all shrink-0"
+                            >
+                                View Case Study
+                            </Link>
+                        </div>
+
+                        <div className="flex flex-col gap-12">
+                            <div className="aspect-[21/9] bg-muted/5 overflow-hidden border border-border/40 grayscale hover:grayscale-0 transition-all duration-700 opacity-90 group-hover:opacity-100 rounded-sm">
+                                <img
+                                    src={project.imageUrl}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
 
-                            {/* Text Column */}
-                            <div className="lg:w-7/12 space-y-8 flex flex-col justify-center">
-                                <div>
-                                    <span className="font-mono text-[10px] uppercase text-accent mb-4 block tracking-[0.2em]">Project 0{idx + 1}</span>
-                                    <h3 className="text-3xl font-medium mb-6 leading-tight">{project.title}</h3>
-                                    <div className="flex gap-8 text-sm">
-                                        <div>
-                                            <h4 className="font-mono text-[10px] uppercase text-muted mb-2 tracking-wider">Role</h4>
-                                            <p className="font-medium">{project.role}</p>
-                                        </div>
+                            <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+                                <div className="md:col-span-12">
+                                    <div className="flex flex-col gap-6">
+                                        <p className="text-base text-foreground/80 leading-relaxed font-normal max-w-2xl">
+                                            {project.problem}
+                                        </p>
+                                        <p className="text-sm font-medium text-foreground/90 border-l-2 border-accent/20 pl-6 py-1">
+                                            {project.outcome}
+                                        </p>
                                     </div>
-                                </div>
-
-                                <div>
-                                    <h4 className="font-mono text-[10px] uppercase text-muted mb-3 italic tracking-wide">Problem Statement</h4>
-                                    <p className="text-lg leading-relaxed text-subtle">{project.problem}</p>
-                                </div>
-
-                                <div className="pt-8">
-                                    <Link
-                                        to={`/project/${id}`}
-                                        className="px-10 py-4 bg-foreground text-background text-xs font-mono uppercase tracking-[0.2em] hover:bg-accent transition-all duration-300 inline-block"
-                                    >
-                                        View Outcome
-                                    </Link>
                                 </div>
                             </div>
                         </div>
-                    );
-                })}
+                    </article>
+                ))}
             </div>
         </section>
     );

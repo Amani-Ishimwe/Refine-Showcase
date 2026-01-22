@@ -1,50 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ARTICLES } from '../constants';
 
 const Writing: React.FC = () => {
-  const articles = [
-    {
-      title: "Documentation as a Professional Skill",
-      date: "Oct 2025",
-      excerpt: "Why the best engineers treat READMEs and design docs with the same rigor as their codebase."
-    },
-    {
-      title: "Design Thinking for Engineers",
-      date: "Aug 2025",
-      excerpt: "Moving beyond pixels: how to use a designer's mindset to architect better technical systems."
-    },
-    {
-      title: "Building Products with Empathy",
-      date: "Jun 2025",
-      excerpt: "How deep user understanding leads to cleaner features and more durable products."
-    }
-  ];
-
   return (
-    <section id="writing" className="container-custom section-padding">
-      <div className="mb-16">
-        <span className="font-mono text-xs uppercase tracking-widest text-accent mb-4 block">03 / Thinking</span>
-        <h2 className="text-3xl font-medium">Curated insights on products and process.</h2>
+    <section id="writing" className="memo-container section-padding border-t border-border/40">
+      <div className="mb-12">
+        <span className="label">Index / 06</span>
+        <h2 className="text-3xl font-medium font-serif-italic">Selected Writing</h2>
+        <p className="text-sm text-foreground/60 mt-2 max-w-sm">
+          A collection of thoughts on product architecture and engineering culture.
+        </p>
       </div>
 
-      <div className="space-y-12">
-        {articles.map((article, idx) => {
-          const id = idx === 0 ? "documentation" : idx === 1 ? "design-thinking" : "empathy";
-          return (
-            <Link key={idx} to={`/writing/${id}`} className="group block cursor-pointer">
-              <div className="flex flex-col md:flex-row md:items-end gap-2 md:gap-8 mb-4">
-                <span className="font-mono text-xs text-muted uppercase shrink-0">{article.date}</span>
-                <h3 className="text-2xl font-medium group-hover:text-accent transition-colors duration-300">
+      <div className="space-y-6">
+        {ARTICLES.map((article) => (
+          <Link key={article.id} to={`/writing/${article.id}`} className="group block">
+            <div className="flex flex-col md:flex-row md:items-baseline justify-between border-b border-border/20 pb-6 gap-4">
+              <div className="flex flex-col gap-1">
+                <h3 className="text-lg font-medium group-hover:text-accent transition-colors">
                   {article.title}
                 </h3>
+                <p className="text-sm text-foreground/60 leading-relaxed group-hover:text-foreground/80 transition-colors">
+                  {article.excerpt}
+                </p>
               </div>
-              <p className="max-w-[600px] text-muted text-sm leading-relaxed md:ml-[100px]">
-                {article.excerpt}
-              </p>
-              <div className="mt-6 md:ml-[100px] h-[1px] w-full bg-border transition-all group-hover:bg-accent"></div>
-            </Link>
-          );
-        })}
+              <span className="font-mono text-[10px] text-muted uppercase tracking-widest shrink-0">{article.date}</span>
+            </div>
+          </Link>
+        ))}
       </div>
     </section>
   );

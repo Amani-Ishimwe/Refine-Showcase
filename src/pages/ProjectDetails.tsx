@@ -1,80 +1,98 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Layout from '../components/Layout';
+import { PROJECTS } from '../constants';
 
 const ProjectDetails: React.FC = () => {
     const { id } = useParams<{ id: string }>();
+    const project = PROJECTS.find(p => p.id === id);
 
-    // Data would ideally come from a central store/file
-    const projects: Record<string, any> = {
-        "flowops": {
-            title: "FlowOps: Intelligent Resource Management",
-            problem: "Enterprise teams struggled with visibility into engineering bandwidth, leading to burnout and missed deadlines.",
-            constraints: "12 weeks to launch MVP. Integration with legacy Jira instances. Minimal impact on developer workflow.",
-            role: "Lead Product Engineer (Design + Frontend Architecture)",
-            process: "Conducted stakeholder interviews → Iterative Figma prototyping → React/TS development with custom scheduling engine → Full system documentation for internal handoff.",
-            outcome: "Reduced resource planning time by 40% across three test divisions. Successfully migrated to production with 100% test coverage.",
-            lesson: "In a data-heavy tool, information hierarchy is more important than visual flair. Clarity is the ultimate feature.",
-            image: "/flowops_dashboard_mockup.png"
-        },
-        "nexus": {
-            title: "Nexus Design System for FinTech",
-            problem: "Inconsistent UI across 14 internal tools leading to significant technical debt and design-to-code friction.",
-            constraints: "Must support multiple frameworks (React, Vue). Strict accessibility requirements (WCAG 2.1 AA).",
-            role: "Product Designer & DS Lead",
-            process: "Audited existing patterns → Defined core design tokens → Built headless component library → Authored comprehensive documentation site for engineering teams.",
-            outcome: "Released v1 documentation. Reduced frontend development time by 30% for new internal tools.",
-            lesson: "A design system is a living product. Success is measured by adoption, not by the number of components.",
-            image: "/nexus_design_system_mockup.png"
-        }
-    };
-
-    const project = id ? projects[id] : null;
-
-    if (!project) return <div>Project not found</div>;
+    if (!project) return (
+        <Layout>
+            <div className="memo-container pt-32 pb-24">
+                <Link to="/" className="label hover:text-foreground transition-colors mb-12 inline-block">← Back to Registry</Link>
+                <div className="text-sm text-foreground/60">Memorandum not found in registry.</div>
+            </div>
+        </Layout>
+    );
 
     return (
         <Layout>
-            <div className="container-custom pt-32 pb-24">
-                <Link to="/" className="font-mono text-[10px] uppercase text-accent mb-8 inline-block hover:underline">← Back to Overview</Link>
+            <article className="memo-container pt-32 pb-24">
+                <Link to="/" className="label hover:text-foreground transition-colors mb-12 inline-block">← Back to Registry</Link>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-                    <div className="lg:col-span-8 space-y-12">
-                        <h1 className="text-4xl md:text-5xl font-medium tracking-tight leading-tight">{project.title}</h1>
-
-                        <div className="aspect-[16/9] bg-muted/20 border border-border/40">
-                            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                <header className="mb-20">
+                    <div className="flex justify-between items-end border-b border-border/60 pb-6 mb-10">
+                        <div>
+                            <h1 className="text-3xl md:text-4xl font-medium mb-2">{project.title}</h1>
+                            <span className="text-[10px] font-mono text-muted uppercase tracking-wider">{project.role}</span>
                         </div>
+                        <span className="font-mono text-[10px] text-muted/40 uppercase tracking-widest">— {project.year}</span>
+                    </div>
+                </header>
 
-                        <section className="space-y-6">
-                            <h2 className="font-mono text-[10px] uppercase text-accent tracking-widest">Process & Execution</h2>
-                            <p className="text-lg leading-relaxed font-light">{project.process}</p>
-                        </section>
+                <div className="space-y-24">
+                    <div className="aspect-[21/9] bg-muted/5 border border-border/40 grayscale opacity-90 rounded-sm overflow-hidden">
+                        <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
                     </div>
 
-                    <div className="lg:col-span-4 space-y-12">
-                        <div className="p-8 border border-border/40 space-y-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+                        <div className="flex flex-col gap-12">
                             <div>
-                                <h4 className="font-mono text-[10px] uppercase text-muted mb-2 tracking-widest">Role</h4>
-                                <p className="text-sm font-medium">{project.role}</p>
+                                <span className="label">The Problem</span>
+                                <p className="text-sm text-foreground/80 leading-relaxed font-normal">
+                                    {project.problem}
+                                </p>
                             </div>
                             <div>
-                                <h4 className="font-mono text-[10px] uppercase text-muted mb-2 tracking-widest">Constraints</h4>
-                                <p className="text-sm leading-relaxed">{project.constraints}</p>
-                            </div>
-                            <div>
-                                <h4 className="font-mono text-[10px] uppercase text-muted mb-2 tracking-widest">Outcome</h4>
-                                <p className="text-sm font-medium leading-relaxed">{project.outcome}</p>
+                                <span className="label">Technical Constraints</span>
+                                <ul className="space-y-3">
+                                    {project.constraints.map((constraint, i) => (
+                                        <li key={i} className="text-sm text-foreground/70 flex gap-4">
+                                            <span className="text-muted/30 font-mono text-[10px] pt-1">-</span>
+                                            {constraint}
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
                         </div>
 
-                        <div className="p-8 bg-accent/5 border-l border-accent">
-                            <h4 className="font-mono text-[10px] uppercase text-accent mb-3 tracking-widest">Core Insight</h4>
-                            <p className="text-sm italic italic leading-relaxed">"{project.lesson}"</p>
+                        <div className="flex flex-col gap-12">
+                            <div>
+                                <span className="label">Process / Execution</span>
+                                <div className="space-y-8">
+                                    <div className="flex flex-col gap-2">
+                                        <span className="text-[10px] uppercase font-mono text-muted tracking-widest">[ DESIGN PHASE ]</span>
+                                        <p className="text-sm text-foreground/70 leading-relaxed">{project.process.design}</p>
+                                    </div>
+                                    <div className="flex flex-col gap-2">
+                                        <span className="text-[10px] uppercase font-mono text-muted tracking-widest">[ DEVELOPMENT ]</span>
+                                        <p className="text-sm text-foreground/70 leading-relaxed">{project.process.development}</p>
+                                    </div>
+                                    <div className="flex flex-col gap-2">
+                                        <span className="text-[10px] uppercase font-mono text-muted tracking-widest">[ DOCUMENTATION ]</span>
+                                        <p className="text-sm text-foreground/70 leading-relaxed">{project.process.documentation}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+
+                    <div className="bg-muted/5 p-10 border-l-2 border-accent/20">
+                        <span className="label">Outcome / Metrics</span>
+                        <p className="text-sm font-medium text-foreground/90 leading-relaxed">
+                            {project.outcome}
+                        </p>
+                    </div>
+
+                    <div className="pt-12 border-t border-border/40 text-center">
+                        <span className="label">Structural Lesson</span>
+                        <p className="text-sm italic text-muted max-w-sm mx-auto leading-relaxed">
+                            "{project.lesson}"
+                        </p>
                     </div>
                 </div>
-            </div>
+            </article>
         </Layout>
     );
 };

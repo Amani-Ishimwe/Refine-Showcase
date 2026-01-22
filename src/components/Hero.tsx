@@ -1,28 +1,39 @@
 import React from 'react';
 
 const Hero: React.FC = () => {
+  const CAL_LINK = "https://cal.com/ishimwe-amani-samuel-odxmcv/15min?user=ishimwe-amani-samuel-odxmcv&overlayCalendar=true";
+
   return (
-    <section className="container-custom section-padding lg:pt-32">
-      <div className="max-w-[800px]">
-        <h1 className="text-4xl md:text-6xl font-medium tracking-tight leading-[1.1] mb-8">
-          I design, build, document, and manage digital products — <span className="text-accent italic">from idea to impact</span>.
+    <section className="memo-container pt-32 pb-16">
+      <div className="flex flex-col gap-8">
+        <div className="flex items-center gap-3">
+          <span className="availability-dot" />
+          <span className="label !mb-0 text-foreground/50">Available for Q1 2026</span>
+        </div>
+
+        <h1 className="text-4xl md:text-6xl font-medium tracking-tight leading-[1.1] max-w-[800px]">
+          I design, build, document, and manage digital products — <span className="font-serif-italic text-accent">from idea to impact</span>.
         </h1>
-        <p className="text-xl md:text-2xl text-muted leading-relaxed mb-12 font-light">
-          A product-minded engineer bridging the gap between design thinking, robust software engineering, and disciplined project execution.
+
+        <p className="text-lg md:text-xl text-foreground/70 leading-relaxed max-w-[600px]">
+          Bridging the gap between design thinking, robust software engineering, and disciplined execution.
         </p>
-        <div className="flex flex-col sm:flex-row gap-6 items-start">
+
+        <div className="flex flex-wrap gap-6 mt-2">
           <a
             href="#work"
-            className="px-8 py-4 bg-foreground text-background text-sm font-medium hover:bg-accent transition-all duration-300"
+            className="text-sm font-medium underline underline-offset-8 decoration-border/60 hover:decoration-foreground transition-all"
           >
             View Selected Work
           </a>
-          <button
-            onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 py-4 border border-border text-sm font-medium hover:border-foreground transition-all duration-300"
+          <a
+            href={CAL_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium underline underline-offset-8 decoration-border/60 hover:decoration-foreground transition-all"
           >
-            How I Work
-          </button>
+            Schedule Briefing
+          </a>
         </div>
       </div>
     </section>
