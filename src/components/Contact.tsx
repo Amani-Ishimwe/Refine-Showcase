@@ -18,9 +18,9 @@ const Contact: React.FC = () => {
                     </a>
 
                     <div className="flex flex-wrap gap-x-12 gap-y-4 pt-4">
-                        <a href="#" className="label hover:text-foreground transition-colors">LinkedIn</a>
-                        <a href="#" className="label hover:text-foreground transition-colors">GitHub</a>
-                        <a href="#" className="label hover:text-foreground transition-colors">Peerlist</a>
+                        <a href="https://www.linkedin.com/in/amani-ishimwe-409825331/" className="label hover:text-foreground transition-colors">LinkedIn</a>
+                        <a href="https://github.com/Amani-Ishimwe" className="label hover:text-foreground transition-colors">GitHub</a>
+                        <a href="https://peerlist.io/amaniishimwe36" className="label hover:text-foreground transition-colors">Peerlist</a>
                     </div>
                 </div>
             </div>
