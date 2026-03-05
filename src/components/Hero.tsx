@@ -1,40 +1,31 @@
 import React from 'react';
 
 const Hero: React.FC = () => {
-  const CAL_LINK = "https://cal.com/ishimwe-amani-samuel-odxmcv/15min?user=ishimwe-amani-samuel-odxmcv&overlayCalendar=true";
-
   return (
-    <section className="memo-container pt-32 pb-16">
-      <div className="flex flex-col gap-8">
-        <div className="flex items-center gap-3">
-          <span className="availability-dot" />
-          <span className="label mb-0! text-foreground/50">Available for Q1 2026</span>
+    <section className="memo-container pt-40 pb-20">
+      <div className="flex flex-col gap-6">
+        <div className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-fg animate-pulse" />
+          <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">Available for Q1 2026</span>
         </div>
 
-        <h1 className="text-4xl md:text-6xl font-medium tracking-tight leading-[1.1] max-w-200">
-          I design, build, document, and manage digital products — <span className="font-serif-italic text-accent">from idea to impact</span>.
+        <h1 className="text-3xl md:text-5xl font-medium tracking-tight max-w-[500px]">
+          Designing digital products with <span className="font-serif italic text-muted">intentionality</span>.
         </h1>
 
-        <p className="text-lg md:text-xl text-foreground/70 leading-relaxed max-w-150">
-          Bridging the gap between design thinking, robust software engineering, and disciplined execution.
+        <p className="text-sm md:text-base text-muted max-w-[420px]">
+          I bridge the gap between design thinking and software engineering to build high-impact systems.
         </p>
 
-        <div className="flex flex-wrap gap-6 mt-2">
-          <a
-            href="#work"
-            className="text-sm font-medium underline underline-offset-8 decoration-border/60 hover:decoration-foreground transition-all"
-          >
-            View Selected Work
+        <div className="flex gap-8 mt-4">
+          <a href="#work" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold uppercase tracking-widest border-b border-muted/30 hover:border-fg transition-all py-1">
+            Projects
           </a>
-          <a
-            href={CAL_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-medium underline underline-offset-8 decoration-border/60 hover:decoration-foreground transition-all"
-          >
-            Schedule Briefing
+          <a href="#about" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold uppercase tracking-widest border-b border-muted/30 hover:border-fg transition-all py-1">
+            About
           </a>
         </div>
+
       </div>
     </section>
   );

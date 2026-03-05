@@ -10,8 +10,8 @@ const ProjectDetails: React.FC = () => {
     if (!project) return (
         <Layout>
             <div className="memo-container pt-32 pb-24">
-                <Link to="/" className="label hover:text-foreground transition-colors mb-12 inline-block">← Back to Registry</Link>
-                <div className="text-sm text-foreground/60">Memorandum not found in registry.</div>
+                <Link to="/" className="label hover:text-fg transition-colors mb-12 inline-block">← Back to Registry</Link>
+                <div className="text-sm text-muted">Memorandum not found in registry.</div>
             </div>
         </Layout>
     );
@@ -19,37 +19,34 @@ const ProjectDetails: React.FC = () => {
     return (
         <Layout>
             <article className="memo-container pt-32 pb-24">
-                <Link to="/" className="label hover:text-foreground transition-colors mb-12 inline-block">← Back to Registry</Link>
+                <Link to="/" className="label hover:text-fg transition-colors mb-12 inline-block">← Back to Registry</Link>
 
                 <header className="mb-20">
-                    <div className="flex justify-between items-end border-b border-border/60 pb-6 mb-10">
-                        <div>
-                            <h1 className="text-3xl md:text-4xl font-medium mb-2">{project.title}</h1>
-                            <span className="text-[10px] font-mono text-muted uppercase tracking-wider">{project.role}</span>
-                        </div>
-                        <span className="font-mono text-[10px] text-muted/40 uppercase tracking-widest">— {project.year}</span>
+                    <div className="border-b border-border pb-6 mb-10">
+                        <h1 className="text-2xl md:text-3xl font-medium mb-2">{project.title}</h1>
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-muted">{project.role} — {project.year}</span>
                     </div>
                 </header>
 
-                <div className="space-y-24">
-                    <div className="aspect-21/9 bg-muted/5 border border-border/40 grayscale opacity-90 rounded-sm overflow-hidden">
+                <div className="space-y-20">
+                    <div className="aspect-[16/9] bg-surface border border-border grayscale opacity-90 rounded-2xl overflow-hidden shadow-sm">
                         <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
-                        <div className="flex flex-col gap-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+                        <div className="flex flex-col gap-10">
                             <div>
                                 <span className="label">The Problem</span>
-                                <p className="text-sm text-foreground/80 leading-relaxed font-normal">
+                                <p className="text-sm md:text-base text-muted leading-relaxed font-light">
                                     {project.problem}
                                 </p>
                             </div>
                             <div>
                                 <span className="label">Technical Constraints</span>
-                                <ul className="space-y-3">
+                                <ul className="space-y-2">
                                     {project.constraints.map((constraint, i) => (
-                                        <li key={i} className="text-sm text-foreground/70 flex gap-4">
-                                            <span className="text-muted/30 font-mono text-[10px] pt-1">-</span>
+                                        <li key={i} className="text-sm text-muted flex gap-3 font-light">
+                                            <span className="text-border">•</span>
                                             {constraint}
                                         </li>
                                     ))}
@@ -57,37 +54,35 @@ const ProjectDetails: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-12">
+                        <div className="flex flex-col gap-10">
                             <div>
                                 <span className="label">Process / Execution</span>
-                                <div className="space-y-8">
+                                <div className="space-y-6">
                                     <div className="flex flex-col gap-2">
-                                        <span className="text-[10px] uppercase font-mono text-muted tracking-widest">[ DESIGN PHASE ]</span>
-                                        <p className="text-sm text-foreground/70 leading-relaxed">{project.process.design}</p>
+                                        <p className="text-sm text-muted leading-relaxed font-light">
+                                            <span className="text-fg font-medium">Design:</span> {project.process.design}
+                                        </p>
                                     </div>
                                     <div className="flex flex-col gap-2">
-                                        <span className="text-[10px] uppercase font-mono text-muted tracking-widest">[ DEVELOPMENT ]</span>
-                                        <p className="text-sm text-foreground/70 leading-relaxed">{project.process.development}</p>
-                                    </div>
-                                    <div className="flex flex-col gap-2">
-                                        <span className="text-[10px] uppercase font-mono text-muted tracking-widest">[ DOCUMENTATION ]</span>
-                                        <p className="text-sm text-foreground/70 leading-relaxed">{project.process.documentation}</p>
+                                        <p className="text-sm text-muted leading-relaxed font-light">
+                                            <span className="text-fg font-medium">Development:</span> {project.process.development}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="bg-muted/5 p-10 border-l-2 border-accent/20">
+                    <div className="bg-surface p-8 rounded-2xl border border-border">
                         <span className="label">Outcome / Metrics</span>
-                        <p className="text-sm font-medium text-foreground/90 leading-relaxed">
+                        <p className="text-sm md:text-base font-medium text-fg leading-relaxed">
                             {project.outcome}
                         </p>
                     </div>
 
-                    <div className="pt-12 border-t border-border/40 text-center">
+                    <div className="pt-12 border-t border-border text-center">
                         <span className="label">Structural Lesson</span>
-                        <p className="text-sm italic text-muted max-w-sm mx-auto leading-relaxed">
+                        <p className="text-sm italic text-muted max-w-sm mx-auto leading-relaxed font-light">
                             "{project.lesson}"
                         </p>
                     </div>

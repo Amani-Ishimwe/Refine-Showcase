@@ -1,112 +1,119 @@
 @import "tailwindcss";
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
 @theme {
-  --color-background: #FDFCFB;
-  --color-foreground: #1A1A1A;
-  --color-accent: #3E4B41;
-  --color-muted: #64748B;
-  --color-border: #E2E8F0;
-  --color-card: #FFFFFF;
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
 
-  --font-sans: "Satoshi", "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "Inter", system-ui, sans-serif;
   --font-serif: "Instrument Serif", serif;
-
-  --max-width-site: 1120px;
-}
-
-@utility font-serif-italic {
-  font-family: var(--font-serif);
-  font-style: italic;
-}
-
-@utility availability-dot {
-  @apply w-2 h-2 rounded-full bg-emerald-500 relative;
-
-  &::after {
-    content: '';
-    @apply absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-75;
-  }
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
+  :root {
+    --bg: #ffffff;
+    --fg: #111111;
+    --accent: #000000;
+    --muted: #666666;
+    --border: #f0f0f0;
+    --surface: #fafafa;
+    color-scheme: light;
+  }
+
+  /* .dark class on <html> or <body> */
+  .dark {
+    --bg: #0c0c0c;
+    --fg: #e5e5e5;
+    --accent: #ffffff;
+    --muted: #888888;
+    --border: #1a1a1a;
+    --surface: #141414;
+    color-scheme: dark;
+  }
+
+  * {
+    @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground antialiased font-sans leading-relaxed;
+    @apply bg-bg text-fg antialiased font-sans selection:bg-fg selection:text-bg;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    @apply tracking-tight font-medium;
+    @apply leading-tight font-medium tracking-tight;
   }
 
   h1 {
-    @apply text-4xl md:text-5xl mb-8 leading-tight;
+    @apply text-2xl md:text-4xl mb-6;
   }
 
   h2 {
-    @apply text-2xl md:text-3xl mb-12 mt-24 first:mt-0;
+    @apply text-lg md:text-2xl mb-10 mt-16 first:mt-0 font-normal;
   }
 
   h3 {
-    @apply text-lg md:text-xl mb-6 font-semibold;
+    @apply text-base md:text-lg mb-3;
   }
 
   p {
-    @apply mb-8 max-w-2xl text-foreground/80 leading-relaxed last:mb-0;
+    @apply mb-4 max-w-lg text-muted text-sm md:text-[15px] leading-relaxed last:mb-0;
   }
 
-  /* Subtitle/Label Style */
   .label {
-    @apply font-mono text-[10px] uppercase tracking-[0.25em] text-muted mb-4 block;
+    @apply text-[9px] uppercase tracking-[0.2em] text-muted font-semibold mb-3 block;
   }
-}
-
-.selection\:bg-accent::selection {
-  background-color: var(--color-accent);
-  color: white;
 }
 
 @utility memo-container {
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  @apply max-w-[620px] mx-auto px-6;
 }
 
 @utility section-padding {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  @apply py-16;
 }
 
 @utility divider {
-  @apply h-[1px] w-full bg-border/40 my-16;
+  @apply h-[1px] w-full bg-border my-12;
 }
 
-@utility space-y-block {
-  @apply space-y-12;
+@utility glass {
+  @apply bg-bg/70 backdrop-blur-xl border border-border;
 }
 
 section {
-  animation: fade-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: appear 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@keyframes fade-in {
+@keyframes appear {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(8px);
   }
 
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full hover:bg-muted;
 }

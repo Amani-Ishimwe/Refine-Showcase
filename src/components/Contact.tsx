@@ -2,25 +2,29 @@ import React from 'react';
 
 const Contact: React.FC = () => {
     return (
-        <section id="contact" className="memo-container section-padding border-t border-border/40">
-            <div className="flex flex-col gap-10">
+        <section id="contact" className="memo-container section-padding border-t border-border">
+            <div className="flex flex-col gap-12 md:gap-20 text-center items-center">
                 <div>
-                    <span className="label text-foreground/40 mb-2 block font-mono text-[10px] uppercase tracking-[0.2em]">Index / 08</span>
-                    <h2 className="text-4xl font-medium tracking-tight mb-4 font-serif-italic">Ready to discuss your product?</h2>
-                    <p className="text-base text-foreground/70 leading-relaxed font-normal max-w-sm">
-                        I specialize in structural engineering and design strategy. Inquiries are usually reviewed within 24 hours.
-                    </p>
+                    <span className="label">Contact</span>
+                    <h2 className="text-3xl md:text-5xl font-medium tracking-tighter mb-6 leading-[1.1] max-w-xl">
+                        Ready to discuss your <span className="font-serif italic text-muted">next product</span>?
+                    </h2>
                 </div>
 
-                <div className="flex flex-col gap-8">
-                    <a href="mailto:amanisamuel10@gmail.com" className="text-2xl font-medium underline underline-offset-12 decoration-border/40 hover:decoration-foreground transition-all w-fit">
+                <div className="flex flex-col gap-10 items-center">
+                    <p className="text-sm md:text-base text-muted leading-relaxed font-light max-w-sm m-0">
+                        I specialize in structural engineering and design strategy.
+                    </p>
+
+                    <a href="mailto:amanisamuel10@gmail.com" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 text-xl md:text-3xl font-medium text-fg hover:text-muted transition-all duration-300 w-fit">
                         amanisamuel10@gmail.com
+                        <span className="group-hover:translate-x-3 transition-transform duration-300">→</span>
                     </a>
 
-                    <div className="flex flex-wrap gap-x-12 gap-y-4 pt-4">
-                        <a href="https://www.linkedin.com/in/amani-ishimwe-409825331/" className="label hover:text-foreground transition-colors">LinkedIn</a>
-                        <a href="https://github.com/Amani-Ishimwe" className="label hover:text-foreground transition-colors">GitHub</a>
-                        <a href="https://peerlist.io/amaniishimwe36" className="label hover:text-foreground transition-colors">Peerlist</a>
+                    <div className="flex justify-center gap-x-10 gap-y-4 pt-12 border-t border-border w-full">
+                        <a href="https://www.linkedin.com/in/amani-ishimwe-409825331/" target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest text-muted hover:text-fg font-semibold">LinkedIn</a>
+                        <a href="https://github.com/Amani-Ishimwe" target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest text-muted hover:text-fg font-semibold">GitHub</a>
+                        <a href="https://peerlist.io/amaniishimwe36" target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest text-muted hover:text-fg font-semibold">Peerlist</a>
                     </div>
                 </div>
             </div>

@@ -6,14 +6,17 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <main>
                 {children}
             </main>
-            <footer className="memo-container py-12 border-t border-border/40 text-sm text-muted">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                    <p className="font-mono text-[10px] uppercase tracking-widest">© 2026 Product Professional</p>
-                    <div className="flex flex-wrap gap-x-8 gap-y-4 font-mono text-[10px] uppercase tracking-widest text-muted/60">
-                        <a href="https://www.linkedin.com/in/amani-ishimwe-409825331/" className="hover:text-foreground transition-colors">LinkedIn</a>
-                        <a href="https://github.com/Amani-Ishimwe" className="hover:text-foreground transition-colors">GitHub</a>
-                        <a href="https://peerlist.io/amaniishimwe36" className="hover:text-foreground transition-colors">Peerlist</a>
+            <footer className="memo-container py-20 border-t border-border mt-16 text-center">
+                <div className="flex flex-col items-center gap-8">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted">
+                        Design & Code © 2026 / Kigali
+                    </p>
+                    <div className="flex items-center gap-x-8 font-semibold text-[10px] uppercase tracking-[0.2em] text-muted">
+                        <a href="https://www.linkedin.com/in/amani-ishimwe-409825331/" target="_blank" rel="noopener noreferrer" className="hover:text-fg transition-colors">LinkedIn</a>
+                        <a href="https://github.com/Amani-Ishimwe" target="_blank" rel="noopener noreferrer" className="hover:text-fg transition-colors">GitHub</a>
+                        <a href="https://peerlist.io/amaniishimwe36" target="_blank" rel="noopener noreferrer" className="hover:text-fg transition-colors">Peerlist</a>
                     </div>
+
                 </div>
             </footer>
         </div>
