@@ -16,7 +16,6 @@ const Home: React.FC = () => {
             <Layout>
                 <Hero />
                 <SelectedWork />
-                <HowIWork />
                 <Services />
                 <Writing />
                 <About />

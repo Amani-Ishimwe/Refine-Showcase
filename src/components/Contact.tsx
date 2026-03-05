@@ -13,8 +13,8 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div className="flex flex-col gap-8">
-                    <a href="mailto:samuel.amani@example.com" className="text-2xl font-medium underline underline-offset-12 decoration-border/40 hover:decoration-foreground transition-all w-fit">
-                        samuel.amani@example.com
+                    <a href="mailto:amanisamuel10@gmail.com" className="text-2xl font-medium underline underline-offset-12 decoration-border/40 hover:decoration-foreground transition-all w-fit">
+                        amanisamuel10@gmail.com
                     </a>
 
                     <div className="flex flex-wrap gap-x-12 gap-y-4 pt-4">
