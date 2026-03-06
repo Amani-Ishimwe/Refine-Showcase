@@ -41,8 +41,8 @@ const SelectedWork: React.FC = () => {
                                 </p>
                                 <Link
                                     to={`/project/${project.id}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    // target="_blank"
+                                    // rel="noopener noreferrer"
                                     className="inline-flex text-[11px] font-semibold uppercase tracking-widest hover:translate-x-1 transition-transform"
                                 >
                                     View Full Case Study →
