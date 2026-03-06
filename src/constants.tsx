@@ -90,7 +90,37 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
     includes: ['Strategy & Planning', 'Full UI/UX + Dev', 'PM & Iterations', 'Ongoing support'],
     outcome: 'A complete, well-built product.',
     pricing: '$5,000'
-  }
+  },
+  {
+  id: 'documentation-system-clarity',
+  name: 'Documentation & System Clarity',
+  tagline: 'Make It Last',
+  bestFor: 'Teams with existing products that need structure',
+  includes: [
+    'Codebase & system review',
+    'Architecture documentation',
+    'README & setup guides',
+    'API documentation',
+    'Developer onboarding docs'
+  ],
+  outcome: 'A product that is easy to understand, maintain, and scale.',
+  pricing: '$700'
+},
+{
+  id: 'advisory-support',
+  name: 'Advisory / Ongoing Support',
+  tagline: 'Professional Presence',
+  bestFor: 'Founders & teams needing continuous guidance',
+  includes: [
+    'Product & technical advisory',
+    'Design and code reviews',
+    'Architecture guidance',
+    'Planning & prioritization support',
+    'Ongoing expert feedback'
+  ],
+  outcome: 'Better decisions, fewer mistakes, and steady progress.',
+  pricing: '$400 / month'
+}
 ];
 
 export const ARTICLES: Article[] = [
