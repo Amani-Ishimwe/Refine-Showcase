@@ -7,7 +7,7 @@ const Contact: React.FC = () => {
                 <div>
                     <span className="label">Contact</span>
                     <h2 className="text-3xl md:text-5xl font-medium tracking-tighter mb-6 leading-[1.1] max-w-xl">
-                        Ready to discuss your <span className="font-serif italic text-muted">next product</span>?
+                        Ready to discuss your <span className="font-serif italic text-muted">next product?</span>
                     </h2>
                 </div>
 
