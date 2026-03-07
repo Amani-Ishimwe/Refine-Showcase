@@ -18,10 +18,10 @@ const Hero: React.FC = () => {
         </p>
 
         <div className="flex gap-8 mt-4">
-          <a href="#work" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold uppercase tracking-widest border-b border-muted/30 hover:border-fg transition-all py-1">
+          <a href="#work" className="text-xs font-semibold uppercase tracking-widest border-b border-muted/30 hover:border-fg transition-all py-1">
             Projects
           </a>
-          <a href="#about" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold uppercase tracking-widest border-b border-muted/30 hover:border-fg transition-all py-1">
+          <a href="#about" className="text-xs font-semibold uppercase tracking-widest border-b border-muted/30 hover:border-fg transition-all py-1">
             About
           </a>
         </div>
