@@ -9,11 +9,11 @@ const Hero: React.FC = () => {
           <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">Available for Q1 2026</span>
         </div>
 
-        <h1 className="text-3xl md:text-5xl font-medium tracking-tight max-w-[500px]">
+        <h1 className="text-3xl md:text-5xl font-medium tracking-tight max-w-125">
           Designing digital products with <span className="font-serif italic text-muted">intentionality</span>.
         </h1>
 
-        <p className="text-sm md:text-base text-muted max-w-[420px]">
+        <p className="text-sm md:text-base text-muted max-w-105">
           I bridge the gap between design thinking and software engineering to build high-impact systems.
         </p>
 
