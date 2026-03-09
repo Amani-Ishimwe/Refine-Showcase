@@ -42,20 +42,20 @@ const About: React.FC = () => {
 
             <div className="pt-4">
               <a href="mailto:hello@amani.dev" className="text-[11px] font-semibold uppercase tracking-widest text-fg hover:translate-x-2 transition-all flex items-center gap-3">
-                <span className="w-8 h-[1px] bg-border" />
+                <span className="w-8 h-px bg-border" />
                 Reach Out
               </a>
             </div>
           </div>
 
           <div className="w-full md:w-1/3 shrink-0 order-first md:order-last">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface">
+            <div className="relative aspect-4/5 overflow-hidden rounded-2xl border border-border bg-surface">
               <img
                 src="/about_profile_photo_placeholder.png"
                 alt="Samuel Amani"
                 className="w-full h-full object-cover scale-[1.01] hover:grayscale-0 transition-all duration-1000 grayscale opacity-80"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg/20 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-bg/20 to-transparent" />
             </div>
           </div>
         </div>

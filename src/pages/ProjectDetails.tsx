@@ -29,7 +29,7 @@ const ProjectDetails: React.FC = () => {
                 </header>
 
                 <div className="space-y-20">
-                    <div className="aspect-[16/9] bg-surface border border-border grayscale opacity-90 rounded-2xl overflow-hidden shadow-sm">
+                    <div className="aspect-video bg-surface border border-border grayscale opacity-90 rounded-2xl overflow-hidden shadow-sm">
                         <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
                     </div>
 
