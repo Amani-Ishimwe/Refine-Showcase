@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
         </div>
 
         <h1 className="text-3xl md:text-5xl font-medium tracking-tight max-w-125">
-          Designing digital products with <span className="font-serif italic text-muted">intentionality</span>.
+          Designing digital products with <span className="font-serif italic text-muted">intentionality.</span>
         </h1>
 
         <p className="text-sm md:text-base text-muted max-w-105">
