@@ -25,13 +25,13 @@ const SelectedWork: React.FC = () => {
                             </div>
 
                             {/* Image Container */}
-                            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-surface border border-border shadow-sm">
+                            <div className="relative aspect-16/10 overflow-hidden rounded-2xl bg-surface border border-border shadow-sm">
                                 <img
                                     src={project.imageUrl}
                                     alt={project.title}
                                     className="w-full h-full object-cover scale-[1.01] hover:scale-105 transition-transform duration-1000 ease-out"
                                 />
-                                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-bg/20 to-transparent pointer-events-none" />
+                                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-bg/20 to-transparent pointer-events-none" />
                             </div>
 
                             {/* Concise Content */}
