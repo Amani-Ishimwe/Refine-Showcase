@@ -2,36 +2,36 @@ import { Project, Article, Philosophy, ServicePackage } from './types';
 
 export const PROJECTS: Project[] = [
   {
-    id: 'nexus-analytics',
-    title: 'Nexus Supply Chain',
-    year: '2023',
-    imageUrl: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200',
-    problem: 'Fragmented logistics data causing operational waste.',
-    constraints: ['Offline capability', 'SQL Integration', 'Accessibility'],
-    role: 'Lead Product Engineer',
+    id: 'acc-website',
+    title: 'Africa CyberSecurity Consortium Website Redesign',
+    year: '2025',
+    imageUrl: '/ACC.png',
+    problem: 'Outdated, inconsistent web presence for pan-African cybersecurity org.',
+    constraints: ['User experience', 'Brand guidelines'],
+    role: 'Product Designer',
     process: {
-      design: 'Iterative prototyping for high information density.',
-      development: 'React + Node.js with custom local-first sync.',
+      design: 'Clean typography and intuitive navigation.',
+      development: 'React + TypeScript + Django + Tailwind with custom local-first sync.',
       documentation: 'Built technical wiki reducing support load.'
     },
-    outcome: 'Increased visibility by 65%, $2.4M saved.',
-    lesson: 'Documentation is the product\'s skeleton.'
+    outcome: '80% reduction in support requests and 25% increase in engagement.',
+    lesson: 'A well-structured codebase and clear documentation are as important as the design itself for long-term success.'
   },
   {
-    id: 'clarity-design-system',
-    title: 'Clarity Design System',
-    year: '2024',
-    imageUrl: 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=1200',
-    problem: 'Visual inconsistency across web and mobile products.',
-    constraints: ['React/React Native', 'Brand adherence', 'Performance'],
-    role: 'Design Technologist',
+    id: 'menya-bot redesign',
+    title: 'Menya Bot Clarity Redesign',
+    year: '2026',
+    imageUrl: '/MENYA.png',
+    problem: 'Complex, inconsistent design system for AI chatbot platform.',
+    constraints: ['Design consistency', 'Developer onboarding'],
+    role: 'Product Engineer',
     process: {
-      design: 'Token-based system for color and scale.',
-      development: 'Headless component library (Radix + Tailwind).',
-      documentation: 'Live documentation site with sandbox env.'
+      design: 'Systematic design overhaul with a focus on clarity and consistency.',
+      development: 'ReactNative with a custom component library and strict code standards.',
+      documentation: 'Comprehensive design system documentation and developer onboarding guides.'
     },
-    outcome: '30% increase in developer velocity.',
-    lesson: 'Engineering discipline scales design quality.'
+    outcome: 'Significant improvement in design consistency and a 40% reduction in onboarding time for new developers.',
+    lesson: 'Investing in a clear design system and thorough documentation can dramatically improve both the user experience and the developer experience, leading to a more maintainable product.'
   }
 ];
 
