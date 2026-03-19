@@ -7,7 +7,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const [theme, setTheme] = React.useState<'light' | 'dark'>(() => {
-    return (localStorage.getItem('theme') as 'light' | 'dark') || 'light';
+    return (localStorage.getItem('theme') as 'light' | 'dark') || 'dark';
   });
 
   React.useEffect(() => {
