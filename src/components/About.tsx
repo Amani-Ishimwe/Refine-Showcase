@@ -41,7 +41,7 @@ const About: React.FC = () => {
             </div>
 
             <div className="pt-4">
-              <a href="mailto:hello@amani.dev" className="text-[11px] font-semibold uppercase tracking-widest text-fg hover:translate-x-2 transition-all flex items-center gap-3">
+              <a href="mailto:amanisamuel10@gmail.com" className="text-[11px] font-semibold uppercase tracking-widest text-fg hover:translate-x-2 transition-all flex items-center gap-3">
                 <span className="w-8 h-px bg-border" />
                 Reach Out
               </a>
