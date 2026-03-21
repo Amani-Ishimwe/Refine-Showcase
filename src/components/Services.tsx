@@ -9,7 +9,7 @@ const Services: React.FC = () => {
       <div className="mb-16">
         <span className="label">Provisioning / Pricing</span>
         <h2 className="max-w-md">
-          Engagement models for <span className="font-serif italic text-muted">technical clarity</span>.
+          Engagement models for <span className="font-serif italic text-muted">technical clarity.</span>
         </h2>
       </div>
 
