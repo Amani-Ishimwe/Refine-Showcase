@@ -8,7 +8,7 @@ const SelectedWork: React.FC = () => {
             <div className="mb-20">
                 <span className="label">Index / Selected</span>
                 <h2 className="max-w-md">
-                    Building systems that <span className="font-serif italic text-muted">endure</span>.
+                    Building systems that <span className="font-serif italic text-muted">endure.</span>
                 </h2>
             </div>
 
