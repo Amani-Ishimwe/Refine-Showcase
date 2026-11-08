@@ -1,120 +1,369 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
-
 
 @theme {
   --color-bg: var(--bg);
   --color-fg: var(--fg);
   --color-accent: var(--accent);
   --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
   --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
 
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-serif: "Instrument Serif", serif;
+  --font-sans: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Satoshi", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Satoshi", monospace;
 }
 
 @layer base {
   :root {
-    --bg: #ffffff;
+    --bg: #efefe9;
     --fg: #111111;
-    --accent: #000000;
-    --muted: #666666;
-    --border: #f0f0f0;
-    --surface: #fafafa;
+    --accent: #38bdf8;
+    --muted: #4a4a46;
+    --subtle: #6e6e68;
+    --border: rgba(17, 17, 17, 0.11);
+    --border-strong: rgba(17, 17, 17, 0.22);
+    --surface: rgba(255, 255, 255, 0.68);
+    --surface-elevated: rgba(255, 255, 255, 0.88);
+
+    /* Sky Blue Gradient from uploaded reference photo */
+    --sky-gradient: linear-gradient(
+      180deg,
+      #42b4e6 0%,
+      #7ec9ee 38%,
+      rgba(179, 224, 247, 0.45) 72%,
+      rgba(239, 239, 233, 0.05) 100%
+    );
+    --sky-gradient-subtle: linear-gradient(
+      180deg,
+      rgba(66, 180, 230, 0.38) 0%,
+      rgba(126, 201, 238, 0.18) 55%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    --sky-pill-gradient: linear-gradient(180deg, #56c0ee 0%, #319fd4 100%);
+
+    /* Skeuomorphic & Glassmorphic tokens (Light) */
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.85);
+    --skeuo-card-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(244, 244, 238, 0.8) 100%);
+    --skeuo-card-shadow:
+      0 10px 28px -8px rgba(0, 0, 0, 0.08),
+      0 2px 6px -1px rgba(0, 0, 0, 0.05),
+      inset 0 1.5px 0 0 rgba(255, 255, 255, 0.95),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.06);
+    --skeuo-inset-bg: linear-gradient(180deg, rgba(226, 226, 218, 0.7) 0%, rgba(238, 238, 232, 0.55) 100%);
+    --skeuo-inset-shadow:
+      inset 0 2px 5px rgba(0, 0, 0, 0.09),
+      inset 0 1px 2px rgba(0, 0, 0, 0.06),
+      0 1px 0 rgba(255, 255, 255, 0.9);
+    --skeuo-btn-primary-bg: linear-gradient(180deg, #2a2a2a 0%, #0d0d0d 100%);
+    --skeuo-btn-primary-fg: #f7f7f4;
+    --skeuo-btn-primary-shadow:
+      0 5px 12px -2px rgba(0, 0, 0, 0.32),
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -1.5px 0 rgba(0, 0, 0, 0.6);
+    --skeuo-btn-secondary-bg: linear-gradient(180deg, #ffffff 0%, #eaeae2 100%);
+    --skeuo-btn-secondary-shadow:
+      0 4px 10px -2px rgba(0, 0, 0, 0.08),
+      0 1px 3px rgba(0, 0, 0, 0.06),
+      inset 0 1.5px 0 rgba(255, 255, 255, 1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+    --noise-opacity: 0.065;
     color-scheme: light;
   }
 
-  /* .dark class on <html> or <body> */
   .dark {
-    --bg: #0c0c0c;
-    --fg: #e5e5e5;
-    --accent: #ffffff;
-    --muted: #888888;
-    --border: #1a1a1a;
-    --surface: #141414;
+    --bg: #0b0b0c;
+    --fg: #f3f3f0;
+    --accent: #42b4e6;
+    --muted: #a0a09c;
+    --subtle: #72726e;
+    --border: rgba(255, 255, 255, 0.1);
+    --border-strong: rgba(255, 255, 255, 0.2);
+    --surface: rgba(24, 24, 27, 0.68);
+    --surface-elevated: rgba(34, 34, 38, 0.85);
+
+    /* Sky Blue Gradient adapted for Dark theme */
+    --sky-gradient: linear-gradient(
+      180deg,
+      rgba(66, 180, 230, 0.78) 0%,
+      rgba(98, 195, 238, 0.35) 45%,
+      rgba(14, 24, 32, 0.15) 100%
+    );
+    --sky-gradient-subtle: linear-gradient(
+      180deg,
+      rgba(66, 180, 230, 0.28) 0%,
+      rgba(66, 180, 230, 0.08) 55%,
+      rgba(11, 11, 12, 0.02) 100%
+    );
+    --sky-pill-gradient: linear-gradient(180deg, #56c0ee 0%, #2a8ec0 100%);
+
+    /* Skeuomorphic & Glassmorphic tokens (Dark) */
+    --glass-bg: rgba(22, 22, 25, 0.68);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --skeuo-card-bg: linear-gradient(180deg, rgba(32, 32, 36, 0.84) 0%, rgba(18, 18, 21, 0.9) 100%);
+    --skeuo-card-shadow:
+      0 14px 34px -8px rgba(0, 0, 0, 0.65),
+      0 4px 10px rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.7);
+    --skeuo-inset-bg: linear-gradient(180deg, rgba(10, 10, 12, 0.85) 0%, rgba(18, 18, 21, 0.7) 100%);
+    --skeuo-inset-shadow:
+      inset 0 2px 6px rgba(0, 0, 0, 0.75),
+      inset 0 1px 2px rgba(0, 0, 0, 0.6),
+      0 1px 0 rgba(255, 255, 255, 0.06);
+    --skeuo-btn-primary-bg: linear-gradient(180deg, #ffffff 0%, #dcdcd6 100%);
+    --skeuo-btn-primary-fg: #0b0b0c;
+    --skeuo-btn-primary-shadow:
+      0 5px 14px -2px rgba(0, 0, 0, 0.6),
+      0 2px 4px rgba(0, 0, 0, 0.4),
+      inset 0 1.5px 0 rgba(255, 255, 255, 1),
+      inset 0 -1.5px 0 rgba(0, 0, 0, 0.25);
+    --skeuo-btn-secondary-bg: linear-gradient(180deg, #28282d 0%, #161619 100%);
+    --skeuo-btn-secondary-shadow:
+      0 5px 12px -2px rgba(0, 0, 0, 0.55),
+      0 1px 3px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.6);
+    --noise-opacity: 0.075;
     color-scheme: dark;
   }
 
   * {
     @apply border-border;
+    font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 500;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Satoshi", sans-serif;
+    font-weight: 500;
   }
 
   body {
-    @apply bg-bg text-fg antialiased font-sans selection:bg-fg selection:text-bg;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    @apply bg-bg text-fg antialiased selection:bg-fg selection:text-bg overflow-x-hidden;
+    font-family: "Satoshi", sans-serif;
+    font-weight: 500;
+    position: relative;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    @apply leading-tight font-medium tracking-tight;
+  /* Global tactile noise background overlay on both Light and Dark themes */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: var(--noise-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
   }
 
-  h1 {
-    @apply text-2xl md:text-4xl mb-6;
+  /* Enforce minimum font-weight 500 (Medium) across all elements */
+  p, span, a, li, input, textarea, select, button, label, div {
+    font-weight: 500;
   }
 
-  h2 {
-    @apply text-lg md:text-2xl mb-10 mt-16 first:mt-0 font-normal;
+  h1, h2, h3, h4, h5, h6, strong, b {
+    @apply tracking-tight text-fg;
+    font-weight: 700;
   }
 
-  h3 {
-    @apply text-base md:text-lg mb-3;
+  :focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 2px;
   }
+}
 
-  p {
-    @apply mb-4 max-w-lg text-muted text-sm md:text-[15px] leading-relaxed last:mb-0;
-  }
-
-  .label {
-    @apply text-[9px] uppercase tracking-[0.2em] text-muted font-semibold mb-3 block;
-  }
+@utility editorial-container {
+  @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-10;
 }
 
 @utility memo-container {
-  @apply max-w-155 mx-auto px-6;
+  @apply max-w-4xl mx-auto px-4 sm:px-6;
 }
 
 @utility section-padding {
-  @apply py-16;
+  @apply py-12 sm:py-16 lg:py-20;
 }
 
-@utility divider {
-  @apply h-px w-full bg-border my-12;
+/* Sky Blue Gradient Surfaces (from uploaded image) */
+@utility sky-gradient-surface {
+  background: var(--sky-gradient);
 }
 
-@utility glass {
-  @apply bg-bg/70 backdrop-blur-xl border border-border;
+@utility sky-gradient-subtle {
+  background: var(--sky-gradient-subtle);
 }
 
-section {
-  animation: appear 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
+@utility sky-btn {
+  background: var(--sky-pill-gradient);
+  color: #071924;
+  box-shadow:
+    0 5px 14px -2px rgba(56, 189, 248, 0.38),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -1.5px 0 rgba(0, 0, 0, 0.2);
+  height: 2.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  white-space: nowrap;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  &:hover {
+    opacity: 0.95;
+    transform: translateY(-1px);
   }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  &:active {
+    transform: translateY(1px);
   }
 }
 
-/* Custom Scrollbar */
+/* Tactile Skeuomorphic + Glassmorphic Card with Embedded Noise & Equal Height Support */
+@utility skeuo-card {
+  background: var(--skeuo-card-bg);
+  box-shadow: var(--skeuo-card-shadow);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 160px 160px;
+  }
+}
+
+/* Recessed Skeuomorphic Well / Inset Box */
+@utility skeuo-inset {
+  background: var(--skeuo-inset-bg);
+  box-shadow: var(--skeuo-inset-shadow);
+  border: 1px solid var(--border);
+  border-radius: 0.875rem;
+}
+
+/* Glassmorphic Floating Surface */
+@utility glass-pill {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--skeuo-card-shadow);
+}
+
+/* Primary Tactile Skeuomorphic Button — Standardized to Navigation Button Height (h-9 / 2.25rem) */
+@utility skeuo-btn {
+  background: var(--skeuo-btn-primary-bg);
+  color: var(--skeuo-btn-primary-fg);
+  box-shadow: var(--skeuo-btn-primary-shadow);
+  height: 2.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  white-space: nowrap;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  &:hover {
+    opacity: 0.94;
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+/* Secondary Tactile Skeuomorphic Button — Standardized to Navigation Button Height (h-9 / 2.25rem) */
+@utility skeuo-btn-secondary {
+  background: var(--skeuo-btn-secondary-bg);
+  color: var(--fg);
+  box-shadow: var(--skeuo-btn-secondary-shadow);
+  border: 1px solid var(--border-strong);
+  height: 2.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  white-space: nowrap;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  &:hover {
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+@utility label {
+  @apply text-[11px] uppercase tracking-[0.18em] text-muted font-bold block;
+}
+
+@utility eyebrow {
+  @apply text-[11px] uppercase tracking-[0.18em] text-muted font-bold;
+}
+
+/* Infinite Sliding Marquee for Tools */
+@keyframes marquee-slide {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-slide 34s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom Subtle Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-bg;
+  background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-border rounded-full hover:bg-muted;
+  background: var(--border-strong);
+  border-radius: 9999px;
 }

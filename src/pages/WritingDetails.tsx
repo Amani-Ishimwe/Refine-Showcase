@@ -1,57 +1,62 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import Layout from '../components/Layout';
-import { ARTICLES } from '../constants';
+import { ARTICLES, PROFILE_CONFIG } from '../constants';
+import SEOHead from '../components/SEOHead';
 
 const WritingDetails: React.FC = () => {
-    const { id } = useParams<{ id: string }>();
-    const article = ARTICLES.find(a => a.id === id);
+  const { id } = useParams<{ id: string }>();
+  const article = ARTICLES.find((a) => a.id === id);
 
-    if (!article) return (
-        <Layout>
-            <div className="memo-container pt-32 pb-24">
-                <Link to="/" className="label hover:text-foreground transition-colors mb-12 inline-block">← Back to Registry</Link>
-                <div className="text-sm text-foreground/60">Article not found in registry.</div>
-            </div>
-        </Layout>
-    );
-
+  if (!article) {
     return (
-        <Layout>
-            <article className="memo-container pt-32 pb-24">
-                <Link to="/" className="label hover:text-foreground transition-colors mb-12 inline-block">← Back to Registry</Link>
-
-                <header className="mb-16">
-                    <div className="flex justify-between items-baseline border-b border-border/60 pb-4 mb-8">
-                        <h1 className="text-3xl font-medium">{article.title}</h1>
-                        <span className="font-mono text-[10px] text-muted uppercase tracking-widest">{article.date}</span>
-                    </div>
-                </header>
-
-                <div className="prose prose-stone max-w-none">
-                    <p className="text-sm text-foreground/60 italic leading-relaxed mb-12 border-l border-accent/20 pl-6">
-                        Summary of professional insight captured for internal registry and methodology review.
-                    </p>
-                    <div className="space-y-12 text-sm leading-relaxed text-foreground/80 font-normal">
-                        <p>{article.excerpt}</p>
-                        <div className="h-px w-12 bg-border/40" />
-                        <p className="text-xs text-muted leading-relaxed italic">
-                            [ Full article content is available in the internal knowledge base.
-                            This brief serves as a high-level conceptual anchor for the portfolio registry. ]
-                        </p>
-                    </div>
-                </div>
-
-                <div className="divider" />
-
-                <div className="pt-8 text-center text-muted/40">
-                    <p className="text-[10px] font-mono uppercase tracking-[0.25em] leading-relaxed">
-                        End of Briefing / Captured by Samuel Amani
-                    </p>
-                </div>
-            </article>
-        </Layout>
+      <div className="editorial-container py-16">
+        <SEOHead title="Article Not Found" />
+        <div className="skeuo-card p-8 space-y-4 max-w-lg">
+          <h1 className="text-2xl font-bold text-fg">Article not found.</h1>
+          <Link to="/" className="skeuo-btn">
+            <span>← Return Home</span>
+          </Link>
+        </div>
+      </div>
     );
+  }
+
+  return (
+    <>
+      <SEOHead title={`${article.title} — Writing`} description={article.excerpt} />
+      <article className="memo-container pt-6 pb-16 space-y-6">
+        <header className="skeuo-card p-6 sm:p-8 space-y-4">
+          <div className="flex items-center justify-between text-xs text-muted font-bold">
+            <Link to="/" className="hover:text-fg">← Home</Link>
+            <span>{article.date} · {article.readTime}</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl font-bold text-fg">{article.title}</h1>
+          <p className="text-xs sm:text-sm text-muted">{article.excerpt}</p>
+        </header>
+
+        <div className="skeuo-card p-6 sm:p-8 space-y-6">
+          {article.sections.map((sec) => (
+            <section key={sec.heading} className="space-y-2">
+              <h2 className="text-lg font-bold text-fg">{sec.heading}</h2>
+              {sec.body.map((p, idx) => (
+                <p key={idx} className="text-xs sm:text-sm text-muted leading-relaxed">
+                  {p}
+                </p>
+              ))}
+            </section>
+          ))}
+
+          <div className="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-3">
+            <span className="text-xs text-muted font-bold">{PROFILE_CONFIG.fullName}</span>
+            <Link to="/services/technical-documentation-architecture" className="skeuo-btn">
+              <span>Documentation Service</span>
+              <span>→</span>
+            </Link>
+          </div>
+        </div>
+      </article>
+    </>
+  );
 };
 
 export default WritingDetails;

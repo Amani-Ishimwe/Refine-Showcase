@@ -1,35 +1,60 @@
 import React from 'react';
+import { PROFILE_CONFIG } from '../constants';
+import SocialLinks from './SocialLinks';
 
 const Contact: React.FC = () => {
-    return (
-        <section id="contact" className="memo-container section-padding border-t border-border">
-            <div className="flex flex-col gap-12 md:gap-20 text-center items-center">
-                <div>
-                    <span className="label">Contact</span>
-                    <h2 className="text-3xl md:text-5xl font-medium tracking-tighter mb-6 leading-[1.1] max-w-xl">
-                        Ready to discuss your <span className="font-serif italic text-muted">next product?</span>
-                    </h2>
-                </div>
-
-                <div className="flex flex-col gap-10 items-center">
-                    <p className="text-sm md:text-base text-muted leading-relaxed font-light max-w-sm m-0">
-                        I specialize in structural engineering and design strategy.
-                    </p>
-
-                    <a href="mailto:amanisamuel10@gmail.com" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 text-xl md:text-3xl font-medium text-fg hover:text-muted transition-all duration-300 w-fit">
-                        amanisamuel10@gmail.com
-                        <span className="group-hover:translate-x-3 transition-transform duration-300">→</span>
-                    </a>
-
-                    <div className="flex justify-center gap-x-10 gap-y-4 pt-12 border-t border-border w-full">
-                        <a href="https://www.linkedin.com/in/amani-ishimwe-409825331/" target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest text-muted hover:text-fg font-semibold">LinkedIn</a>
-                        <a href="https://github.com/Amani-Ishimwe" target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest text-muted hover:text-fg font-semibold">GitHub</a>
-                        <a href="https://peerlist.io/amaniishimwe36" target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-widest text-muted hover:text-fg font-semibold">Peerlist</a>
-                    </div>
-                </div>
+  return (
+    <section id="contact" className="section-padding">
+      <div className="editorial-container space-y-8">
+        <div className="skeuo-card p-6 sm:p-10 lg:p-12 space-y-6">
+          <div className="flex flex-wrap items-center gap-2.5">
+            <div className="skeuo-inset px-3.5 py-1.5 inline-flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-fg animate-pulse" />
+              <span className="text-[11px] uppercase tracking-wider text-fg font-bold">
+                {PROFILE_CONFIG.availability.statusText}
+              </span>
             </div>
-        </section>
-    );
+            <div className="skeuo-inset px-3.5 py-1.5 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-muted font-bold">
+              <span>{PROFILE_CONFIG.location.city}, {PROFILE_CONFIG.location.country} · {PROFILE_CONFIG.location.timezone}</span>
+            </div>
+          </div>
+
+          <div className="space-y-3 max-w-2xl">
+            <span className="label">12 · Contact</span>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-fg leading-tight">
+              Ready to build your next product?
+            </h2>
+            <p className="text-sm sm:text-base text-muted leading-relaxed">
+              Schedule a 15-minute discovery call to discuss your product, UI/UX design, or software engineering needs directly.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3 pt-1">
+            <a
+              href={PROFILE_CONFIG.contact.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="skeuo-btn"
+            >
+              <span>Book a Call</span>
+              <span>↗</span>
+            </a>
+            <a
+              href={`mailto:${PROFILE_CONFIG.contact.email}`}
+              className="skeuo-btn-secondary"
+            >
+              <span>{PROFILE_CONFIG.contact.email}</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Unwrapped Social Media Links */}
+        <div className="pt-2">
+          <SocialLinks />
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Contact;

@@ -1,58 +1,173 @@
-import React from 'react';
-import { SERVICE_PACKAGES } from '../constants';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import {
+  SERVICE_CATEGORIES,
+  SERVICE_PACKAGES,
+  CURRENCY_CONFIG,
+  PROFILE_CONFIG,
+} from '../constants';
 
-const Services: React.FC = () => {
-  const CAL_LINK = "https://cal.com/ishimwe-amani-samuel-odxmcv/15min?user=ishimwe-amani-samuel-odxmcv&overlayCalendar=true";
+type CurrencyCode = keyof typeof CURRENCY_CONFIG.rates;
+
+interface ServicesProps {
+  showFullComparison?: boolean;
+}
+
+const Services: React.FC<ServicesProps> = () => {
+  const [currency, setCurrency] = useState<CurrencyCode>(CURRENCY_CONFIG.default);
+
+  const formatPrice = (usdAmount: number, billingPeriod?: string) => {
+    const rateObj = CURRENCY_CONFIG.rates[currency];
+    const converted = Math.round(usdAmount * rateObj.rate);
+    const formatted =
+      currency === 'RWF'
+        ? `RWF ${converted.toLocaleString()}`
+        : `${rateObj.symbol}${converted.toLocaleString()}`;
+    return billingPeriod ? `${formatted}${billingPeriod}` : formatted;
+  };
 
   return (
-    <section id="services" className="memo-container section-padding border-t border-border">
-      <div className="mb-16">
-        <span className="label">Provisioning / Pricing</span>
-        <h2 className="max-w-md">
-          Engagement models for <span className="font-serif italic text-muted">technical clarity.</span>
-        </h2>
-      </div>
+    <section id="services" className="section-padding">
+      <div className="editorial-container space-y-16">
+        {/* PART 1: 7 SERVICE CATEGORIES (Equal Height Cards) */}
+        <div className="space-y-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="space-y-1">
+              <span className="label">04 · Services</span>
+              <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-fg">
+                What you can hire me to do.
+              </h2>
+            </div>
 
-      <div className="flex flex-col gap-6">
-        {SERVICE_PACKAGES.map((pkg) => (
-          <div key={pkg.id} className="group relative p-6 rounded-2xl bg-surface border border-border hover:border-fg/20 transition-all duration-300">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div className="flex-1 space-y-3">
-                <div className="flex items-center gap-3">
-                  <span className="text-[9px] uppercase tracking-widest px-2 py-0.5 bg-fg/5 rounded-full text-muted group-hover:bg-fg/10 transition-colors">{pkg.tagline}</span>
-                  <h3 className="text-base font-medium m-0">{pkg.name}</h3>
-                </div>
-                <p className="text-xs text-muted leading-relaxed max-w-sm m-0">
-                  {pkg.outcome} Dedicated to <span className="text-fg/80">{pkg.bestFor}</span>.
-                </p>
-                <ul className="flex flex-wrap gap-x-4 gap-y-1 pt-2 opacity-60 group-hover:opacity-100 transition-opacity">
-                  {pkg.includes.map((item, i) => (
-                    <li key={i} className="text-[10px] text-muted flex items-center gap-1.5">
-                      <span className="w-1 h-1 bg-border rounded-full" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="flex flex-col items-start md:items-end gap-4 shrink-0">
-                <div className="text-lg font-medium">{pkg.pricing}</div>
-                <a
-                  href={CAL_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[10px] font-semibold uppercase tracking-widest border-b border-muted/30 hover:border-fg transition-all py-1"
-                >
-                  Briefing →
-                </a>
-              </div>
+            <div className="flex flex-wrap gap-2">
+              <Link to="/services" className="skeuo-btn-secondary">
+                <span>All Services</span>
+                <span>→</span>
+              </Link>
+              <Link to="/pricing" className="skeuo-btn">
+                <span>Compare Packages</span>
+                <span>→</span>
+              </Link>
             </div>
           </div>
-        ))}
-      </div>
 
-      <div className="mt-12 text-center">
-        <p className="text-[10px] text-muted uppercase tracking-widest italic">Custom retainers available upon request.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
+            {SERVICE_CATEGORIES.map((category) => (
+              <Link
+                key={category.id}
+                to={`/services/${category.id}`}
+                className="skeuo-card p-5 sm:p-6 h-full flex flex-col justify-between space-y-4 hover:-translate-y-0.5 transition-transform"
+              >
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between text-xs text-muted font-bold">
+                    <span>{category.number}</span>
+                    <span className="skeuo-inset px-2.5 py-0.5 text-[10px] text-fg">
+                      {category.estimatedTimeline}
+                    </span>
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-fg line-clamp-1">
+                    {category.title}
+                  </h3>
+                  <p className="text-xs text-muted leading-snug line-clamp-2">
+                    {category.shortSummary}
+                  </p>
+                </div>
+
+                <div className="pt-3 border-t border-border flex items-center justify-between text-xs font-bold text-fg">
+                  <span>{category.startingPriceNote}</span>
+                  <span>Explore →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* PART 2: 6 PACKAGES & PRICING (Equal Height Cards + Sky Blue Flagship Highlight) */}
+        <div className="space-y-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="space-y-1">
+              <span className="label">05 · Packages & Pricing</span>
+              <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-fg">
+                Clear packages for every stage.
+              </h2>
+            </div>
+
+            {/* Tactile Currency Switcher (Navigation Button Height) */}
+            <div className="skeuo-inset p-1 inline-flex items-center gap-1 self-start sm:self-auto">
+              {(Object.keys(CURRENCY_CONFIG.rates) as CurrencyCode[]).map((code) => (
+                <button
+                  key={code}
+                  type="button"
+                  onClick={() => setCurrency(code)}
+                  className={`cursor-pointer ${
+                    currency === code
+                      ? 'skeuo-btn'
+                      : 'h-9 px-3 text-xs text-muted hover:text-fg font-bold rounded-lg'
+                  }`}
+                >
+                  {code}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
+            {SERVICE_PACKAGES.map((pkg) => (
+              <div
+                key={pkg.id}
+                className={`skeuo-card sky-gradient-subtle p-6 h-full flex flex-col justify-between space-y-6 ${
+                  pkg.isFlagship ? 'ring-2 ring-[#42b4e6]' : ''
+                }`}
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[11px] uppercase tracking-wider text-muted font-bold">
+                      {pkg.number} · {pkg.tagline}
+                    </span>
+                    {pkg.isFlagship && (
+                      <span className="px-2.5 py-0.5 rounded-md bg-[#42b4e6] text-[#071924] text-[10px] uppercase font-bold">
+                        Flagship
+                      </span>
+                    )}
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-bold text-fg">{pkg.name}</h3>
+                    <div className="text-2xl sm:text-3xl font-bold text-fg mt-1">
+                      {formatPrice(pkg.priceUSD, pkg.billingPeriod)}
+                    </div>
+                    <span className="text-[11px] text-muted block mt-0.5 line-clamp-1">
+                      {pkg.bestFor} · {pkg.estimatedDuration}
+                    </span>
+                  </div>
+
+                  <ul className="skeuo-inset p-3.5 space-y-1.5 min-h-[138px]">
+                    {pkg.includes.map((item) => (
+                      <li key={item} className="text-xs text-fg flex items-center gap-2">
+                        <span className="text-[#42b4e6] font-bold">✓</span>
+                        <span className="truncate">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pt-2">
+                  <a
+                    href={PROFILE_CONFIG.contact.bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-full ${
+                      pkg.isFlagship ? 'sky-btn' : 'skeuo-btn-secondary'
+                    }`}
+                  >
+                    <span>Book a Call</span>
+                    <span>↗</span>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
