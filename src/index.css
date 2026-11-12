@@ -365,3 +365,12 @@
   background: var(--border-strong);
   border-radius: 9999px;
 }
+
+/* Hide scrollbar utility for carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

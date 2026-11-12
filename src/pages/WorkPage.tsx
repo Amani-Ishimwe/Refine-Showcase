@@ -15,10 +15,10 @@ const WorkPage: React.FC = () => {
           <div className="flex items-center gap-2 text-xs text-muted font-bold">
             <Link to="/" className="hover:text-fg">Home</Link>
             <span>/</span>
-            <span className="text-fg">Work</span>
+            <span className="text-fg">Projects</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-fg">
-            Selected Work & Case Studies
+            Projects & Case Studies
           </h1>
           <p className="text-xs sm:text-sm text-muted max-w-xl">
             Product design, UI/UX systems, and full-stack software engineering.

@@ -10,7 +10,7 @@ interface NavigationProps {
 
 const NAV_LINKS = [
   { name: 'Home', path: '/' },
-  { name: 'Work', path: '/work' },
+  { name: 'Projects', path: '/projects' },
   { name: 'Products', path: '/products' },
   { name: 'Services', path: '/services' },
   { name: 'Experience', path: '/experience' },
@@ -39,7 +39,16 @@ const Navigation: React.FC<NavigationProps> = ({ toggleTheme, currentTheme }) =>
 
   const isActive = (path: string) => {
     if (path === '/') return location.pathname === '/';
-    if (path === '/work' && location.pathname.startsWith('/project/')) return true;
+    if (
+      (path === '/projects' || path === '/work') &&
+      (location.pathname === '/projects' ||
+        location.pathname === '/work' ||
+        location.pathname.startsWith('/project/') ||
+        location.pathname.startsWith('/projects/') ||
+        location.pathname.startsWith('/work/'))
+    ) {
+      return true;
+    }
     if (path === '/services' && location.pathname === '/pricing') return true;
     if (path === '/initiatives' && location.pathname === '/ventures') return true;
     return location.pathname === path || location.pathname.startsWith(`${path}/`);

@@ -36,9 +36,12 @@ function App() {
       <Layout toggleTheme={toggleTheme} currentTheme={theme}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<WorkPage />} />
+          <Route path="/project" element={<WorkPage />} />
           <Route path="/work" element={<WorkPage />} />
           <Route path="/work/:id" element={<ProjectDetails />} />
           <Route path="/project/:id" element={<ProjectDetails />} />
+          <Route path="/projects/:id" element={<ProjectDetails />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/ventures" element={<VenturesPage />} />
