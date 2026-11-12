@@ -29,26 +29,39 @@ const Services: React.FC<ServicesProps> = () => {
   return (
     <section id="services" className="section-padding">
       <div className="editorial-container space-y-16">
-        {/* PART 1: 7 SERVICE CATEGORIES (Equal Height Cards) */}
-        <div className="space-y-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div className="space-y-1">
-              <span className="label">04 · Services</span>
-              <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-fg">
-                What you can hire me to do.
-              </h2>
-            </div>
+        {/* Main Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+          <div className="space-y-2 max-w-2xl">
+            <span className="label">05 · Services & Pricing</span>
+            <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-fg leading-[1.12]">
+              Capabilities and transparent pricing.
+            </h2>
+            <p className="text-xs sm:text-sm text-muted leading-relaxed">
+              From targeted UI/UX design sprints to full-stack product engineering, select an engagement model tailored to your stage.
+            </p>
+          </div>
 
-            <div className="flex flex-wrap gap-2">
-              <Link to="/services" className="skeuo-btn-secondary">
-                <span>All Services</span>
-                <span>→</span>
-              </Link>
-              <Link to="/pricing" className="skeuo-btn">
-                <span>Compare Packages</span>
-                <span>→</span>
-              </Link>
-            </div>
+          <div className="flex flex-wrap gap-2">
+            <Link to="/services" className="skeuo-btn-secondary">
+              <span>All Services</span>
+              <span>→</span>
+            </Link>
+            <Link to="/pricing" className="skeuo-btn">
+              <span>Compare Packages</span>
+              <span>→</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* PART 1: 7 SERVICE CATEGORIES (Equal Height Cards) */}
+        <div className="space-y-6">
+          <div className="flex items-center justify-between pb-3 border-b border-border">
+            <h3 className="text-lg sm:text-xl font-bold text-fg">
+              What you can hire me to do.
+            </h3>
+            <span className="text-xs text-muted font-bold">
+              7 Capabilities
+            </span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
@@ -65,9 +78,9 @@ const Services: React.FC<ServicesProps> = () => {
                       {category.estimatedTimeline}
                     </span>
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-fg line-clamp-1">
+                  <h4 className="text-base sm:text-lg font-bold text-fg line-clamp-1">
                     {category.title}
-                  </h3>
+                  </h4>
                   <p className="text-xs text-muted leading-snug line-clamp-2">
                     {category.shortSummary}
                   </p>
@@ -83,14 +96,11 @@ const Services: React.FC<ServicesProps> = () => {
         </div>
 
         {/* PART 2: 6 PACKAGES & PRICING (Equal Height Cards + Sky Blue Flagship Highlight) */}
-        <div className="space-y-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div className="space-y-1">
-              <span className="label">05 · Packages & Pricing</span>
-              <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-fg">
-                Clear packages for every stage.
-              </h2>
-            </div>
+        <div className="space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-3 border-b border-border">
+            <h3 className="text-lg sm:text-xl font-bold text-fg">
+              Clear packages for every stage.
+            </h3>
 
             {/* Tactile Currency Switcher (Navigation Button Height) */}
             <div className="skeuo-inset p-1 inline-flex items-center gap-1 self-start sm:self-auto">

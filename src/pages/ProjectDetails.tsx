@@ -185,7 +185,7 @@ const ProjectDetails: React.FC = () => {
               rel="noopener noreferrer"
               className="skeuo-btn"
             >
-              <span>Book a Call</span>
+              <span>Discover More</span>
               <span>↗</span>
             </a>
           </div>

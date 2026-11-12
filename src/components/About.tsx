@@ -12,7 +12,7 @@ const About: React.FC<AboutProps> = ({ showFullLink = true }) => {
       <div className="editorial-container space-y-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div className="space-y-1">
-            <span className="label">10 · Philosophy & Principles</span>
+            <span className="label">08 · Philosophy & Principles</span>
             <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-fg">
               {PROFILE_CONFIG.philosophyHeadline}
             </h2>

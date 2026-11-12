@@ -1,5 +1,26 @@
 export type ProjectStatus = 'Live' | 'In Development' | 'Completed' | 'Concept' | 'Archived';
 
+export type SchematicType =
+  | 'cybersecurity-grid'
+  | 'conversational-ai'
+  | 'feedback-pipeline'
+  | 'access-control'
+  | 'community-consensus'
+  | 'lead-recovery'
+  | 'marketplace-rwanda'
+  | 'wellbeing-ai'
+  | 'inbox-agent'
+  | 'visual-cms'
+  | 'studio-lintel'
+  | 'studio-rapix'
+  | 'studio-wattfor'
+  | 'gallery-fintech'
+  | 'gallery-editorial'
+  | 'gallery-ai-workspace'
+  | 'gallery-commerce'
+  | 'gallery-design-system'
+  | 'gallery-command';
+
 export type ProjectFilterCategory =
   | 'All'
   | 'Product Design'
@@ -33,6 +54,103 @@ export interface CaseStudyContent {
   lessons: string;
 }
 
+export interface VentureInitiativeItem {
+  id: string;
+  number: string;
+  name: string;
+  category: string;
+  tagline: string;
+  description: string;
+  role: string;
+  status: ProjectStatus;
+  highlights: string[];
+  technologies: string[];
+  imageUrl?: string;
+  schematicType: SchematicType;
+  caseStudyPath?: string;
+  liveUrl?: string;
+}
+
+export interface StudioAgencyItem {
+  id: string;
+  number: string;
+  name: string;
+  monogram: string;
+  category: string;
+  tagline: string;
+  description: string;
+  role: string;
+  focusAreas: string[];
+  capabilities: string[];
+  imageUrl?: string;
+  schematicType: SchematicType;
+  websiteUrl?: string;
+}
+
+export interface SystemContributionItem {
+  id: string;
+  name: string;
+  organization: string;
+  category: string;
+  year: string;
+  myContribution: string;
+  description: string;
+  technologies: string[];
+  outcome?: string;
+  imageUrl?: string;
+  schematicType: SchematicType;
+  caseStudyPath?: string;
+  externalUrl?: string;
+  accessLevel?: 'Public Case Study' | 'Client System' | 'Confidential';
+}
+
+export type SelectedWorkCategory =
+  | 'All'
+  | 'Client Systems'
+  | 'Design Systems'
+  | 'UI/UX Design'
+  | 'Website Design'
+  | 'Interface Concepts';
+
+export interface SelectedWorkItem {
+  id: string;
+  title: string;
+  category: Exclude<SelectedWorkCategory, 'All'>;
+  secondaryCategory?: string;
+  organization: string;
+  year: string;
+  roleOrContribution: string;
+  description: string;
+  technologies: string[];
+  imageUrl?: string;
+  schematicType: SchematicType;
+  caseStudyPath?: string;
+  externalUrl?: string;
+  accessLevel?: 'Public Case Study' | 'Client System' | 'Confidential';
+}
+
+export type DesignGalleryCategory =
+  | 'All'
+  | 'UI/UX Design'
+  | 'Website Design'
+  | 'Landing Pages'
+  | 'Interface Concepts'
+  | 'Design Systems';
+
+export interface DesignGalleryItem {
+  id: string;
+  title: string;
+  category: Exclude<DesignGalleryCategory, 'All'>;
+  subtitle: string;
+  description: string;
+  aspectRatio: 'wide' | 'standard';
+  colSpan: 'large' | 'medium';
+  tools: string[];
+  year: string;
+  imageUrl?: string;
+  schematicType: SchematicType;
+}
+
 export interface Project {
   id: string;
   aliases?: string[];
@@ -50,7 +168,7 @@ export interface Project {
   technologies: string[];
   plainLanguageSystemSummary: string;
   imageUrl?: string;
-  schematicType: 'cybersecurity-grid' | 'conversational-ai' | 'feedback-pipeline' | 'access-control' | 'community-consensus' | 'lead-recovery';
+  schematicType: SchematicType;
   process: {
     design: string;
     development: string;
@@ -76,6 +194,7 @@ export interface ProductItem {
   ownershipCategory: OwnershipDistinction;
   ownershipClarification: string;
   status: ProjectStatus;
+  featuredSpan?: 'half' | 'third';
   mainFeatures: {
     title: string;
     description: string;
@@ -86,7 +205,7 @@ export interface ProductItem {
   }[];
   plainLanguageArchitecture: string;
   imageUrl?: string;
-  schematicType: Project['schematicType'];
+  schematicType: SchematicType;
   websiteUrl?: string;
   caseStudyPath: string;
   githubUrl?: string;

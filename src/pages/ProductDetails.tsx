@@ -102,7 +102,7 @@ const ProductDetails: React.FC = () => {
               rel="noopener noreferrer"
               className="skeuo-btn-secondary"
             >
-              <span>Book a Call</span>
+              <span>Discover More</span>
               <span>↗</span>
             </a>
           </div>

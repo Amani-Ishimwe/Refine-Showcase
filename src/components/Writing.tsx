@@ -6,7 +6,7 @@ const Writing: React.FC = () => {
   return (
     <section id="writing" className="section-padding">
       <div className="editorial-container space-y-6">
-        <span className="label">11 · Writing</span>
+        <span className="label">09 · Writing & Perspectives</span>
 
         <div className="grid grid-cols-1 gap-4 items-stretch">
           {ARTICLES.map((article) => (

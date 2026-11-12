@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { INITIATIVES, LEADERSHIP_CLUBS } from '../constants';
-import VenturesSection from '../components/VenturesSection';
+import { INITIATIVES, LEADERSHIP_CLUBS, BOOKING_URL } from '../constants';
 import SEOHead from '../components/SEOHead';
 
 const InitiativesPage: React.FC = () => {
@@ -53,12 +52,15 @@ const InitiativesPage: React.FC = () => {
 
                   <div className="pt-3 border-t border-border flex items-center justify-between gap-2">
                     <span className="text-[11px] text-muted font-bold truncate">{init.myRole}</span>
-                    {init.links?.[0] && (
-                      <Link to={init.links[0].url} className="skeuo-btn-secondary shrink-0">
-                        <span>{init.links[0].label}</span>
-                        <span>→</span>
-                      </Link>
-                    )}
+                    <a
+                      href={BOOKING_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="skeuo-btn shrink-0"
+                    >
+                      <span>Discover More</span>
+                      <span>↗</span>
+                    </a>
                   </div>
                 </article>
               ))}
@@ -106,7 +108,29 @@ const InitiativesPage: React.FC = () => {
         </div>
       </section>
 
-      <VenturesSection compact={false} />
+      {/* Cross-navigation to Ventures and Selected Work */}
+      <section className="section-padding pt-0">
+        <div className="editorial-container">
+          <div className="skeuo-card p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <h3 className="text-lg font-bold text-fg">Explore Ventures & Commercial Products</h3>
+              <p className="text-xs sm:text-sm text-muted">
+                Discover technology ventures, digital products, and independent studios founded by Amani.
+              </p>
+            </div>
+            <div className="flex items-center gap-2.5 shrink-0">
+              <Link to="/ventures" className="skeuo-btn-secondary">
+                <span>Ventures & Studios</span>
+                <span>→</span>
+              </Link>
+              <Link to="/work" className="skeuo-btn">
+                <span>Selected Work</span>
+                <span>→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

@@ -3,6 +3,11 @@ import {
   Project,
   ProductItem,
   BusinessVenture,
+  VentureInitiativeItem,
+  StudioAgencyItem,
+  SystemContributionItem,
+  DesignGalleryItem,
+  SelectedWorkItem,
   ServiceCategory,
   ServicePackage,
   FlexibleEngagementModel,
@@ -92,6 +97,12 @@ export const PROFILE_CONFIG: ProfileConfig = {
     },
   ],
 };
+
+/**
+ * Centralized call-booking destination used by every "Discover More" and "Book a Call" CTA across the portfolio.
+ * Change this single URL to update all booking buttons site-wide.
+ */
+export const BOOKING_URL: string = PROFILE_CONFIG.contact.bookingUrl;
 
 export const CURRENCY_CONFIG = {
   default: 'USD' as const,
@@ -402,58 +413,279 @@ export const PROJECTS: Project[] = [
     id: 'passe',
     aliases: ['passe-security'],
     title: 'PASSE',
-    category: 'Security Tech · Access Management',
+    category: 'AI / Access Control / Security',
     filterCategories: ['Product Design', 'UI/UX Design', 'Experiments and Concepts'],
     year: '2025',
     role: 'Product & UI/UX Designer',
-    ownershipNote: 'Product Concept',
-    status: 'Concept',
+    ownershipNote: 'Venture Initiative',
+    status: 'In Development',
     schematicType: 'access-control',
     shortDescription:
-      'Smart physical access concept combining OCR ID scanning, RFID badges, and live security logs.',
+      'An AI-powered smart access and security management platform designed to modernize visitor management, identity verification, vehicle access control, and institutional security.',
     problem:
-      'Paper visitor logs and disconnected badges slow down building entry and weaken security.',
+      'Paper visitor logs and disconnected badges slow down building entry and weaken institutional security.',
     contribution:
-      'Designed operator consoles, fast OCR/RFID verification flows, and audit dashboards.',
+      'Designed operator consoles, fast OCR/RFID verification flows, vehicle access control, and live audit dashboards.',
     constraints: ['Sub-second gate ergonomics', 'High-contrast status visibility'],
-    technologies: ['Figma', 'Product Design', 'UI/UX Design', 'Prototyping'],
+    technologies: ['Figma', 'AI / OCR', 'RFID Systems', 'UI/UX Design', 'System Architecture'],
     plainLanguageSystemSummary:
-      'Connects ID scanning (OCR) and smart cards (RFID) in one clean screen for fast gate check-ins.',
+      'Connects AI identity scanning, vehicle access, and smart credentials in one unified security platform.',
     process: {
       design: 'High-contrast operator screens and instant verification states.',
-      development: 'Interactive hardware-to-software UX prototypes.',
-      documentation: 'Visitor check-in and security audit journey maps.',
+      development: 'Interactive hardware-to-software UX prototypes and access workflows.',
+      documentation: 'Visitor check-in, vehicle gate, and security audit journey maps.',
     },
-    outcome: 'Completed UI/UX concept & interactive prototype.',
+    outcome: 'Unified AI smart access & institutional security architecture.',
     lesson:
       'Physical check-in interfaces demand instant visual confirmation with zero clutter.',
     caseStudy: {
       overview:
-        'PASSE explores how OCR document scanning and RFID credentials unify into a fast, modern facility access console.',
-      targetUsers: ['Campus & facility security teams', 'Reception operators'],
+        'PASSE modernizes institutional security by unifying visitor management, identity verification, and vehicle access control into one intelligent platform.',
+      targetUsers: ['Campus & institutional security teams', 'Facility & gate operators'],
       productStrategy:
-        'Pair automated OCR scanning for guests with instant RFID taps for recurring members.',
+        'Combine AI-assisted OCR identity verification for visitors with seamless RFID and vehicle access for recurring members.',
       lessons: 'Software for physical gates must prioritize speed and unmistakable status cues.',
+    },
+  },
+  {
+    id: 'gurarwanda',
+    aliases: ['gura-rwanda'],
+    title: 'GuraRwanda',
+    category: 'E-commerce / Digital Marketplace',
+    filterCategories: ['Product Design', 'UI/UX Design', 'Full-Stack Development', 'SaaS Products'],
+    year: '2025–2026',
+    role: 'Founder · Product Designer & Engineer',
+    ownershipNote: 'Founded Venture',
+    status: 'In Development',
+    schematicType: 'marketplace-rwanda',
+    shortDescription:
+      'A digital marketplace dedicated to Made in Rwanda products, connecting local producers, artisans, and businesses with customers locally and internationally.',
+    problem:
+      'Rwandan producers and artisans lack a unified, high-trust digital storefront to reach both domestic and international buyers.',
+    contribution:
+      'Leading product strategy, merchant & buyer UX in Figma, and full-stack marketplace architecture.',
+    constraints: ['Multi-vendor inventory', 'Local & cross-border checkout clarity'],
+    technologies: ['Figma', 'Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL'],
+    plainLanguageSystemSummary:
+      'Gives local Rwandan makers and businesses a modern online marketplace to sell locally and globally.',
+    process: {
+      design: 'Editorial product discovery, artisan storefronts, and frictionless checkout flows.',
+      development: 'Scalable multi-vendor catalog, order routing, and merchant dashboards.',
+      documentation: 'Merchant onboarding guides and marketplace operations playbooks.',
+    },
+    outcome: 'End-to-end Made in Rwanda digital commerce architecture.',
+    lesson:
+      'Empowering local producers requires merchant tools that are as simple as the buyer experience.',
+    caseStudy: {
+      overview:
+        'GuraRwanda is a digital marketplace built to showcase Made in Rwanda products and connect local producers, artisans, and businesses with customers locally and internationally.',
+      targetUsers: ['Rwandan artisans, producers & SMEs', 'Local & international buyers'],
+      productStrategy:
+        'Elevate local craftsmanship through trustworthy storytelling, clean merchant tools, and reliable fulfillment tracking.',
+      lessons: 'Marketplace trust is built through clear product provenance and effortless merchant onboarding.',
+    },
+  },
+  {
+    id: 'mwizerwa',
+    aliases: ['mwizerwa-ai'],
+    title: 'Mwizerwa',
+    category: 'AI / Wellbeing Technology',
+    filterCategories: ['Product Design', 'UI/UX Design', 'Software Engineering', 'SaaS Products'],
+    year: '2025–2026',
+    role: 'Founder · Product Designer & Engineer',
+    ownershipNote: 'Founded Initiative',
+    status: 'In Development',
+    schematicType: 'wellbeing-ai',
+    shortDescription:
+      'An intelligent wellbeing companion designed to provide emotional support and help people navigate everyday challenges through practical problem-solving.',
+    problem:
+      'Many people facing daily emotional stress lack accessible, stigma-free support to process thoughts and take practical next steps.',
+    contribution:
+      'Designed the calm conversational UX, guided reflection flows, and AI companion architecture.',
+    constraints: ['Empathetic, calm interface tone', 'Privacy-first interaction design'],
+    technologies: ['Figma', 'React', 'TypeScript', 'AI / LLM Workflows', 'Product Strategy'],
+    plainLanguageSystemSummary:
+      'Provides a calm, private AI space for emotional support and structured everyday problem-solving.',
+    process: {
+      design: 'Distraction-free conversational workspace and guided reflection prompts.',
+      development: 'Context-aware AI dialogue flows anchored in practical problem-solving.',
+      documentation: 'Safety guardrails and empathetic conversation design principles.',
+    },
+    outcome: 'Human-centered AI wellbeing companion architecture.',
+    lesson:
+      'Wellbeing technology must feel calm, grounded, and respectful of human agency.',
+    caseStudy: {
+      overview:
+        'Mwizerwa is an intelligent wellbeing companion designed to provide emotional support and help people navigate everyday challenges through practical problem-solving.',
+      targetUsers: ['Individuals navigating daily stress & life decisions', 'Students & young professionals'],
+      productStrategy:
+        'Pair empathetic listening with structured, actionable problem-solving steps rather than endless chat loops.',
+      lessons: 'Calm typography and unhurried pacing directly shape how safe a digital companion feels.',
+    },
+  },
+  {
+    id: 'sift',
+    aliases: ['sift-ai'],
+    title: 'Sift',
+    category: 'AI Agent / Productivity',
+    filterCategories: ['Product Design', 'Software Engineering', 'SaaS Products'],
+    year: '2025–2026',
+    role: 'Product Designer & Engineer',
+    ownershipNote: 'Independent Product',
+    status: 'In Development',
+    schematicType: 'inbox-agent',
+    shortDescription:
+      'An AI-powered email assistant that helps clean up inboxes by identifying low-priority messages and organizing or archiving what no longer matters.',
+    problem:
+      'Important communications get buried under newsletters, automated alerts, and low-priority email noise.',
+    contribution:
+      'Designed the priority triage UX and engineered the automated inbox classification workflows.',
+    constraints: ['Zero false-positive archiving', 'One-glance triage control'],
+    technologies: ['TypeScript', 'Next.js', 'AI / LLM Agents', 'REST APIs'],
+    plainLanguageSystemSummary:
+      'Automatically separates high-priority emails from clutter so your inbox stays clean and focused.',
+    process: {
+      design: 'High-speed triage queues and transparent AI classification badges.',
+      development: 'Automated email parsing, priority scoring, and batch archive rules.',
+      documentation: 'Agent permission controls and user review rules.',
+    },
+    outcome: 'Intelligent inbox triage engine & focused productivity UI.',
+    lesson:
+      'AI productivity agents earn trust when every automated action is transparent and reversible.',
+    caseStudy: {
+      overview:
+        'Sift is an AI-powered email assistant that cleans up cluttered inboxes by identifying low-priority messages and organizing or archiving what no longer matters.',
+      targetUsers: ['Founders, executives & busy operators', 'High-volume email users'],
+      productStrategy:
+        'Surface only what requires human attention today while quietly organizing the rest.',
+      lessons: 'Great automation reduces decisions instead of adding new settings panels.',
+    },
+  },
+  {
+    id: 'kiln',
+    aliases: ['kiln-cms'],
+    title: 'Kiln',
+    category: 'Visual CMS / Developer Tools',
+    filterCategories: ['Product Design', 'Full-Stack Development', 'Software Engineering', 'SaaS Products'],
+    year: '2025–2026',
+    role: 'Product Designer & Engineer',
+    ownershipNote: 'Independent Product',
+    status: 'In Development',
+    schematicType: 'visual-cms',
+    shortDescription:
+      'A visual content management platform designed to make existing websites easier to manage, regardless of the technology stack used to build them.',
+    problem:
+      'Non-technical teams struggle to update copy and media on custom-coded websites without waiting on developers.',
+    contribution:
+      'Designed the visual DOM inspector, live inline editor, and stack-agnostic content adapter.',
+    constraints: ['Stack-agnostic integration', 'Clean code output'],
+    technologies: ['TypeScript', 'React', 'Node.js', 'Visual DOM Engine', 'REST APIs'],
+    plainLanguageSystemSummary:
+      'Lets teams visually click and edit content on any existing website without rewriting their codebase.',
+    process: {
+      design: 'Precision visual canvas, property inspector, and instant publish controls.',
+      development: 'Lightweight SDK and visual content layer compatible with any web stack.',
+      documentation: '5-minute developer integration and editor onboarding guides.',
+    },
+    outcome: 'Stack-agnostic visual CMS architecture & live editing studio.',
+    lesson:
+      'Developer tools succeed when they respect the existing codebase while empowering non-technical editors.',
+    caseStudy: {
+      overview:
+        'Kiln is a visual content management platform designed to make existing websites easier to manage, regardless of the technology stack used to build them.',
+      targetUsers: ['Engineering & marketing teams', 'Agencies managing client websites'],
+      productStrategy:
+        'Decouple visual content editing from the underlying frontend framework.',
+      lessons: 'Bridging visual design tools and code repositories unlocks speed for the whole team.',
     },
   },
 ];
 
+/**
+ * SECTION 01 — Ventures & Initiatives
+ * "Building things that move ideas into reality."
+ */
+export const VENTURES_INITIATIVES: VentureInitiativeItem[] = [
+  {
+    id: 'gurarwanda',
+    number: '01',
+    name: 'GuraRwanda',
+    category: 'E-commerce / Digital Marketplace',
+    tagline: 'Connecting Made in Rwanda producers with local and global markets.',
+    description:
+      'A digital marketplace dedicated to Made in Rwanda products, connecting local producers, artisans, and businesses with customers locally and internationally.',
+    role: 'Founder · Product Design & Engineering',
+    status: 'In Development',
+    highlights: [
+      'Dedicated storefront infrastructure for Rwandan producers, artisans, and brands.',
+      'Unified local and international discovery, ordering, and fulfillment workflows.',
+      'Designed to elevate Made in Rwanda craftsmanship to a global audience.',
+    ],
+    technologies: ['Product Strategy', 'UI/UX Design', 'Next.js', 'TypeScript', 'PostgreSQL'],
+    schematicType: 'marketplace-rwanda',
+    caseStudyPath: '/project/gurarwanda',
+  },
+  {
+    id: 'mwizerwa',
+    number: '02',
+    name: 'Mwizerwa',
+    category: 'AI / Wellbeing Technology',
+    tagline: 'Empathetic emotional support and practical everyday problem-solving.',
+    description:
+      'An intelligent wellbeing companion designed to provide emotional support and help people navigate everyday challenges through practical problem-solving.',
+    role: 'Founder · Product Design & AI Systems',
+    status: 'In Development',
+    highlights: [
+      'Calm, human-centered conversational interface built for emotional clarity.',
+      'Guided reflection workflows that turn overwhelming situations into actionable steps.',
+      'Privacy-first architecture tailored for accessible everyday wellbeing.',
+    ],
+    technologies: ['Product Design', 'Conversational AI', 'React', 'TypeScript', 'System Design'],
+    schematicType: 'wellbeing-ai',
+    caseStudyPath: '/project/mwizerwa',
+  },
+  {
+    id: 'passe',
+    number: '03',
+    name: 'PASSE',
+    category: 'AI / Access Control / Security',
+    tagline: 'Modernizing visitor management, identity verification, and institutional security.',
+    description:
+      'An AI-powered smart access and security management platform designed to modernize visitor management, identity verification, vehicle access control, and institutional security.',
+    role: 'Founder · Product & Systems Architect',
+    status: 'In Development',
+    highlights: [
+      'AI-powered OCR identity verification paired with instant RFID credential scanning.',
+      'Unified operator console for visitor check-ins, vehicle access control, and gate logs.',
+      'Real-time security audit trails built for campuses, enterprises, and institutions.',
+    ],
+    technologies: ['AI / OCR', 'RFID Integration', 'UI/UX Systems', 'Figma', 'Security Architecture'],
+    schematicType: 'access-control',
+    caseStudyPath: '/project/passe',
+  },
+];
+
+/**
+ * SECTION 02 — Products & Experiments
+ * "Small ideas. Useful products. Real problems."
+ */
 export const PRODUCTS: ProductItem[] = [
   {
     id: 'backlos-ai',
     name: 'Backlos AI',
     monogram: 'BK',
-    tagline: 'Structured applicant feedback infrastructure.',
-    category: 'B2B SaaS · Feedback Tech',
+    tagline: 'Structured applicant feedback engine for cohorts, hiring, and grants.',
+    category: 'Feedback Infrastructure / SaaS',
     description:
-      'Helps organizations turn reviewer evaluations into structured, constructive feedback for applicants.',
+      'A feedback engine that helps hackathon organizers, hiring teams, grant programs, and other application-based organizations provide structured, meaningful feedback to applicants.',
     problemSolved:
-      'Eliminates silent rejections and manual writing bottlenecks for high-volume cohorts.',
-    intendedUsers: ['Accelerators & fellowships', 'Hiring & talent teams', 'Grant committees'],
+      'Eliminates silent rejections and manual writing bottlenecks for high-volume application programs.',
+    intendedUsers: ['Hackathon organizers', 'Hiring & talent teams', 'Grant & fellowship programs'],
     myRole: 'Product Design & Frontend Dev',
     ownershipCategory: 'Products I Co-Built',
     ownershipClarification: 'Co-built — leading Figma UI/UX and Next.js frontend.',
     status: 'In Development',
+    featuredSpan: 'half',
     mainFeatures: [
       { title: 'Evaluation Rubrics', description: 'Standardized scoring criteria for reviewers.' },
       { title: 'Feedback Synthesis', description: 'Automated, structured candidate feedback reports.' },
@@ -474,10 +706,10 @@ export const PRODUCTS: ProductItem[] = [
     id: 'leads',
     name: 'Leads',
     monogram: 'LD',
-    tagline: 'Lead management & revenue recovery.',
-    category: 'B2B SaaS · Sales Pipeline',
+    tagline: 'Inquiry organization, sales pipeline tracking, and follow-up discipline.',
+    category: 'CRM / Business SaaS',
     description:
-      'Helps service businesses organize inquiries, track pipelines, and automate follow-up discipline.',
+      'A platform that helps service businesses organize customer inquiries, track sales pipelines, manage follow-ups, and prevent potential opportunities from being forgotten.',
     problemSolved:
       'Prevents lost revenue from forgotten inquiries across scattered messages and spreadsheets.',
     intendedUsers: ['Service businesses', 'Consulting agencies', 'Sales operators'],
@@ -485,6 +717,7 @@ export const PRODUCTS: ProductItem[] = [
     ownershipCategory: 'Products I Engineered',
     ownershipClarification: 'Designed the UX and engineered the full-stack platform.',
     status: 'In Development',
+    featuredSpan: 'half',
     mainFeatures: [
       { title: 'Inquiry Capture', description: 'Centralized log for every inbound prospect.' },
       { title: 'Visual Pipeline', description: 'Clear stages from first contact to closed deal.' },
@@ -505,17 +738,18 @@ export const PRODUCTS: ProductItem[] = [
     id: 'sage',
     name: 'Sage',
     monogram: 'SG',
-    tagline: 'Structured community proposals & decision archives.',
-    category: 'Community SaaS · Governance',
+    tagline: 'Structured topic proposals, voting, and searchable conversation archives.',
+    category: 'Community / Collaboration SaaS',
     description:
-      'Guides communities through proposing ideas, debating, voting, and archiving final decisions.',
+      'A structured discussion platform where people can propose topics, vote, discuss ideas, and easily revisit important conversations instead of losing them in endless chat messages.',
     problemSolved:
-      'Stops important proposals from disappearing inside noisy group chat streams.',
-    intendedUsers: ['Student clubs & communities', 'Engineering & product teams'],
+      'Stops important proposals and decisions from disappearing inside noisy chat streams.',
+    intendedUsers: ['Communities & organizations', 'Engineering & product teams'],
     myRole: 'Product & UI/UX Designer',
     ownershipCategory: 'Products I Designed',
     ownershipClarification: 'Product concept, state architecture & UI/UX design.',
     status: 'In Development',
+    featuredSpan: 'third',
     mainFeatures: [
       { title: '4-Step Lifecycle', description: 'Propose → Discuss → Vote → Archive.' },
       { title: 'Focused Threads', description: 'Structured pros, cons, and context.' },
@@ -531,33 +765,294 @@ export const PRODUCTS: ProductItem[] = [
     caseStudyPath: '/project/sage',
   },
   {
-    id: 'passe',
-    name: 'PASSE',
-    monogram: 'PS',
-    tagline: 'Smart OCR & RFID physical access concept.',
-    category: 'Security Tech · Access Control',
+    id: 'sift',
+    name: 'Sift',
+    monogram: 'SF',
+    tagline: 'Intelligent inbox cleanup and automated low-priority email archiving.',
+    category: 'AI Agent / Productivity',
     description:
-      'Explores how OCR ID scanning and RFID badges streamline physical facility check-ins.',
+      'An AI-powered email assistant that helps clean up inboxes by identifying low-priority messages and organizing or archiving what no longer matters.',
     problemSolved:
-      'Replaces slow paper visitor logbooks with real-time digital verification.',
-    intendedUsers: ['Campus & corporate security', 'Facility managers'],
-    myRole: 'Product & UI/UX Designer',
-    ownershipCategory: 'Experimental Concepts',
-    ownershipClarification: 'Product exploration & UI/UX system design.',
-    status: 'Concept',
+      'Reclaims focus by automatically filtering out inbox noise and surfacing only messages that matter.',
+    intendedUsers: ['Founders & operators', 'Busy professionals'],
+    myRole: 'Product Designer & Engineer',
+    ownershipCategory: 'Products I Founded',
+    ownershipClarification: 'Designed the triage UX and AI agent workflow.',
+    status: 'In Development',
+    featuredSpan: 'third',
     mainFeatures: [
-      { title: 'OCR ID Scan', description: 'Fast visitor document verification.' },
-      { title: 'RFID Tap Access', description: 'Instant entry for registered members.' },
-      { title: 'Live Audit Console', description: 'Real-time gate logs and active passes.' },
+      { title: 'Smart Priority Detection', description: 'Identifies low-value noise vs. urgent threads.' },
+      { title: 'Auto-Archive Rules', description: 'Quietly organizes clutter without losing history.' },
+      { title: 'Daily Digest Control', description: 'One-glance review of archived items.' },
     ],
     technologyStack: [
-      { name: 'Figma', practicalPurpose: 'Operator console & kiosk UI prototypes.' },
-      { name: 'UX Systems', practicalPurpose: 'Hardware-to-software interaction flows.' },
+      { name: 'TypeScript', practicalPurpose: 'Type-safe agent rules & UI.' },
+      { name: 'Next.js', practicalPurpose: 'Fast triage dashboard.' },
+      { name: 'AI / LLM Agents', practicalPurpose: 'Context-aware email classification.' },
     ],
     plainLanguageArchitecture:
-      'Unifies ID scanning and badge taps into one high-contrast screen for gate operators.',
-    schematicType: 'access-control',
-    caseStudyPath: '/project/passe',
+      'Analyzes incoming email patterns to archive clutter while keeping urgent messages front and center.',
+    schematicType: 'inbox-agent',
+    caseStudyPath: '/project/sift',
+  },
+  {
+    id: 'kiln',
+    name: 'Kiln',
+    monogram: 'KL',
+    tagline: 'Stack-agnostic visual content management for any existing website.',
+    category: 'Visual CMS / Developer Tools',
+    description:
+      'A visual content management platform designed to make existing websites easier to manage, regardless of the technology stack used to build them.',
+    problemSolved:
+      'Lets teams visually update website content without rewriting code or locked-in CMS templates.',
+    intendedUsers: ['Developers & agencies', 'Marketing & content teams'],
+    myRole: 'Product Designer & Engineer',
+    ownershipCategory: 'Products I Founded',
+    ownershipClarification: 'Designed the visual editor and stack-agnostic bridge.',
+    status: 'In Development',
+    featuredSpan: 'third',
+    mainFeatures: [
+      { title: 'Visual DOM Inspector', description: 'Click any element on an existing site to edit.' },
+      { title: 'Stack-Agnostic Bridge', description: 'Works across React, Vue, Laravel, or static sites.' },
+      { title: 'Instant Publishing', description: 'Push verified content updates safely to production.' },
+    ],
+    technologyStack: [
+      { name: 'TypeScript', practicalPurpose: 'Visual editor SDK & bridge.' },
+      { name: 'React', practicalPurpose: 'Interactive studio canvas.' },
+      { name: 'REST APIs', practicalPurpose: 'Content sync across any stack.' },
+    ],
+    plainLanguageArchitecture:
+      'Connects a visual point-and-click editor to any existing website without changing how it was built.',
+    schematicType: 'visual-cms',
+    caseStudyPath: '/project/kiln',
+  },
+];
+
+/**
+ * SECTION 03 — Studios & Agencies
+ * "Building teams and creating opportunities."
+ */
+export const STUDIOS_AGENCIES: StudioAgencyItem[] = [
+  {
+    id: 'lintel',
+    number: '01',
+    name: 'Lintel',
+    monogram: 'LN',
+    category: 'Product Development Studio',
+    tagline: 'Designing and developing MVPs, SaaS platforms, and software solutions.',
+    description:
+      'A digital product studio focused on designing and developing MVPs, SaaS platforms, and software solutions that help ideas become real products.',
+    role: 'Founder & Product Lead',
+    focusAreas: ['MVP Design & Engineering', 'B2B & B2C SaaS Platforms', 'Product Strategy & Roadmapping'],
+    capabilities: ['Product Discovery', 'UI/UX Systems', 'Full-Stack Engineering', 'Launch Execution'],
+    schematicType: 'studio-lintel',
+  },
+  {
+    id: 'rapix',
+    number: '02',
+    name: 'Rapix',
+    monogram: 'RX',
+    category: 'Software Development Agency',
+    tagline: 'Transforming business opportunities into functional digital solutions.',
+    description:
+      'An agency focused on building MVPs and SaaS products, helping businesses transform opportunities into functional digital solutions.',
+    role: 'Founder & Lead Engineer',
+    focusAreas: ['Rapid MVP Delivery', 'Custom SaaS Development', 'API & Backend Architecture'],
+    capabilities: ['Web & Mobile Apps', 'Cloud & Database Systems', 'Third-Party Integrations', 'Iterative Delivery'],
+    schematicType: 'studio-rapix',
+  },
+  {
+    id: 'wattfor',
+    number: '03',
+    name: 'Wattfor',
+    monogram: 'WF',
+    category: 'Industry-focused Digital Solutions',
+    tagline: 'Tailored websites and specialized digital products for distinct industries.',
+    description:
+      'A digital studio that creates websites for different industries and develops specialized digital products tailored to the needs of businesses in those fields.',
+    role: 'Founder & Creative Director',
+    focusAreas: ['Industry-Specific Websites', 'Bespoke Business Platforms', 'Conversion & Brand Systems'],
+    capabilities: ['Sector Research', 'Custom Web Design', 'Responsive Engineering', 'CMS & Operations Tools'],
+    schematicType: 'studio-wattfor',
+  },
+];
+
+/**
+ * SECTION 04 — Selected Work & Design Gallery (Unified, Single Section)
+ * "Work built through collaboration, craft, and systems."
+ * Curated production platforms, design systems, and interface explorations with zero duplication.
+ */
+export const SELECTED_WORK_ITEMS: SelectedWorkItem[] = [
+  {
+    id: 'acc-website',
+    title: 'Africa CyberSecurity Consortium — Institutional Platform',
+    category: 'Client Systems',
+    secondaryCategory: 'Website Design',
+    organization: 'Africa CyberSecurity Consortium (ACC)',
+    year: '2025',
+    roleOrContribution: 'Product Designer & Frontend Architect — Led UX architecture, brand portal, and high-performance frontend.',
+    description:
+      'Engineered an authoritative digital platform for a pan-African cybersecurity consortium, establishing high-trust program directories and security event repositories.',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Figma', 'System Architecture'],
+    imageUrl: '/ACC.png',
+    schematicType: 'cybersecurity-grid',
+    caseStudyPath: '/project/acc-website',
+    externalUrl: 'https://cybersecurityconsortium.africa',
+    accessLevel: 'Public Case Study',
+  },
+  {
+    id: 'menya-bot-redesign',
+    title: 'Menya Bot — Conversational AI & Token System',
+    category: 'Design Systems',
+    secondaryCategory: 'UI/UX Design',
+    organization: 'Menya Bot Platform',
+    year: '2026',
+    roleOrContribution: 'Product Engineer — Standardized component tokens, mobile interaction primitives, and developer onboarding.',
+    description:
+      'Transformed a complex, multi-agent AI chatbot interface into a modular component library with cross-platform React Native primitives and clear token hierarchy.',
+    technologies: ['Figma', 'React Native', 'TypeScript', 'Design Systems', 'Developer Experience'],
+    imageUrl: '/MENYA.png',
+    schematicType: 'conversational-ai',
+    caseStudyPath: '/project/menya-bot%20redesign',
+    accessLevel: 'Public Case Study',
+  },
+  {
+    id: 'apex-capital-fintech',
+    title: 'Apex Capital — Institutional Fintech Dashboard',
+    category: 'UI/UX Design',
+    organization: 'Fintech Exploration',
+    year: '2026',
+    roleOrContribution: 'Lead Product Designer — Designed high-density financial data tables, risk matrices, and order routing flows.',
+    description:
+      'A precision trading and treasury terminal designed for institutional liquidity managers, balancing maximum information density with zero cognitive strain.',
+    technologies: ['Figma', 'Fintech UX', 'Design Tokens', 'Information Architecture'],
+    schematicType: 'gallery-fintech',
+  },
+  {
+    id: 'kigali-chronicle-editorial',
+    title: 'Kigali Chronicle — Minimalist Editorial & Archive',
+    category: 'Website Design',
+    organization: 'Publishing & Culture',
+    year: '2026',
+    roleOrContribution: 'Creative Director & Designer — Created typographic scale, reading surfaces, and accessible archives.',
+    description:
+      'A typography-first cultural and technology publication exploring Rwanda’s creative economy through distraction-free reading environments.',
+    technologies: ['Figma', 'Typography Systems', 'Editorial Layout', 'Responsive Web'],
+    schematicType: 'gallery-editorial',
+  },
+  {
+    id: 'vanguard-os-command',
+    title: 'Vanguard OS — Developer Command Palette & Console',
+    category: 'Interface Concepts',
+    organization: 'Developer Tools',
+    year: '2026',
+    roleOrContribution: 'Interface Designer & Prototyper — Engineered keyboard-first navigation patterns and workspace triggers.',
+    description:
+      'A sub-millisecond keyboard launcher for engineering teams featuring fuzzy command routing, contextual shortcut triggers, and deployment controls.',
+    technologies: ['Figma', 'Developer Experience', 'Keyboard-First UX', 'Interaction Design'],
+    schematicType: 'gallery-command',
+  },
+  {
+    id: 'soma-studio-edtech',
+    title: 'Soma Studio — Adaptive Learning & Assessment Interface',
+    category: 'UI/UX Design',
+    secondaryCategory: 'Interface Concepts',
+    organization: 'EdTech Platform',
+    year: '2026',
+    roleOrContribution: 'Product Designer — Designed interactive code sandbox, quiz creator, and student progress telemetry.',
+    description:
+      'An interactive learning interface combining split-view code exercises, real-time feedback loops, and curriculum progress tracking.',
+    technologies: ['Figma', 'EdTech UX', 'Interactive Prototyping', 'Design Systems'],
+    schematicType: 'community-consensus',
+  },
+];
+
+/**
+ * Backward compatibility exports
+ */
+export const SYSTEMS_CONTRIBUTIONS: SystemContributionItem[] = [
+  {
+    id: 'acc-website',
+    name: 'Africa CyberSecurity Consortium Website Redesign',
+    organization: 'Africa CyberSecurity Consortium (ACC)',
+    category: 'Institutional Web Platform · Cybersecurity',
+    year: '2025',
+    myContribution: 'Product Designer — Led UX architecture, interface redesign, frontend implementation, and technical wiki.',
+    description:
+      'Modernized an outdated and inconsistent online presence for a pan-African cybersecurity organization into a clear, authoritative digital hub.',
+    technologies: ['Figma', 'React', 'TypeScript', 'Tailwind CSS', 'Django', 'Technical Documentation'],
+    outcome: '80% reduction in support requests · 25% increase in visitor engagement.',
+    imageUrl: '/ACC.png',
+    schematicType: 'cybersecurity-grid',
+    caseStudyPath: '/project/acc-website',
+    accessLevel: 'Public Case Study',
+  },
+  {
+    id: 'menya-bot redesign',
+    name: 'Menya Bot Clarity Redesign',
+    organization: 'Menya Bot Platform',
+    category: 'AI Chatbot Platform · Design System',
+    year: '2026',
+    myContribution: 'Product Engineer — Overhauled the design system, engineered reusable React Native components, and wrote onboarding guides.',
+    description:
+      'Transformed a complex, fragmented AI chatbot interface into a systematic component library with comprehensive developer onboarding documentation.',
+    technologies: ['Figma', 'React Native', 'TypeScript', 'Design Systems', 'Developer Experience'],
+    outcome: '40% reduction in new developer onboarding time.',
+    imageUrl: '/MENYA.png',
+    schematicType: 'conversational-ai',
+    caseStudyPath: '/project/menya-bot%20redesign',
+    accessLevel: 'Public Case Study',
+  },
+];
+
+export const DESIGN_GALLERY: DesignGalleryItem[] = [
+  {
+    id: 'gallery-apex-fintech',
+    title: 'Apex Capital — Institutional Fintech Dashboard',
+    category: 'UI/UX Design',
+    subtitle: 'Fintech Treasury & Trading Terminal',
+    description: 'High-density portfolio risk matrices, liquidity telemetry, and institutional order execution routing.',
+    aspectRatio: 'wide',
+    colSpan: 'large',
+    tools: ['Figma', 'Fintech UX', 'Design Tokens'],
+    year: '2026',
+    schematicType: 'gallery-fintech',
+  },
+  {
+    id: 'gallery-kigali-chronicle',
+    title: 'Kigali Chronicle — Minimalist Editorial & Archive',
+    category: 'Website Design',
+    subtitle: 'Typography-Led Publishing Surface',
+    description: 'Clean typography-led reading surfaces, responsive type scale, and accessible article archives.',
+    aspectRatio: 'standard',
+    colSpan: 'medium',
+    tools: ['Figma', 'Typography Systems', 'Editorial Layout'],
+    year: '2026',
+    schematicType: 'gallery-editorial',
+  },
+  {
+    id: 'gallery-vanguard-command',
+    title: 'Vanguard OS — Developer Command Palette & Console',
+    category: 'Interface Concepts',
+    subtitle: 'Keyboard-First Developer Console',
+    description: 'Fuzzy command routing, contextual shortcut triggers, and sub-millisecond workspace actions.',
+    aspectRatio: 'standard',
+    colSpan: 'medium',
+    tools: ['Figma', 'Developer Experience', 'Interaction Design'],
+    year: '2026',
+    schematicType: 'gallery-command',
+  },
+  {
+    id: 'gallery-soma-studio',
+    title: 'Soma Studio — Adaptive Learning & Assessment Interface',
+    category: 'UI/UX Design',
+    subtitle: 'Interactive Education Experience',
+    description: 'Interactive code sandboxes, quiz creators, and real-time student mastery telemetry.',
+    aspectRatio: 'standard',
+    colSpan: 'medium',
+    tools: ['Figma', 'EdTech UX', 'Prototyping'],
+    year: '2026',
+    schematicType: 'community-consensus',
   },
 ];
 
