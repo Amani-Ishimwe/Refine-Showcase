@@ -1,13 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PRODUCTS, BOOKING_URL } from '../constants';
+import { PRODUCTS } from '../constants';
 import ProjectVisual from './ProjectVisual';
 
 interface ProductsSectionProps {
   showViewAll?: boolean;
+  limit?: number;
 }
 
-const ProductsSection: React.FC<ProductsSectionProps> = ({ showViewAll = true }) => {
+const ProductsSection: React.FC<ProductsSectionProps> = ({
+  showViewAll = true,
+  limit,
+}) => {
+  const displayedProducts = limit ? PRODUCTS.slice(0, limit) : PRODUCTS;
+
   return (
     <section id="products" className="section-padding">
       <div className="editorial-container space-y-10">
@@ -25,15 +31,15 @@ const ProductsSection: React.FC<ProductsSectionProps> = ({ showViewAll = true })
 
           {showViewAll && (
             <Link to="/products" className="skeuo-btn-secondary self-start lg:self-auto shrink-0">
-              <span>All Products</span>
+              <span>All Products ({PRODUCTS.length})</span>
               <span>→</span>
             </Link>
           )}
         </div>
 
-        {/* Varied-Span Editorial Bento Grid (2 Half-Width Flagships + 3 Third-Width Products) */}
+        {/* Varied-Span Editorial Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-6 items-stretch">
-          {PRODUCTS.map((product) => {
+          {displayedProducts.map((product) => {
             const isHalf = product.featuredSpan === 'half';
             const colSpanClass = isHalf
               ? 'md:col-span-3 lg:col-span-6'
@@ -87,20 +93,17 @@ const ProductsSection: React.FC<ProductsSectionProps> = ({ showViewAll = true })
                   </div>
                 </div>
 
-                {/* Action Row with Required "Discover More" Booking CTA */}
-                <div className="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-2.5">
-                  <a
-                    href={BOOKING_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="skeuo-btn"
+                {/* Exactly one button: View Product */}
+                <div className="pt-4 border-t border-border flex items-center justify-between gap-2.5">
+                  <span className="text-[11px] text-muted font-bold">
+                    {product.myRole}
+                  </span>
+                  <Link
+                    to={`/products/${product.id}`}
+                    className="skeuo-btn shrink-0"
                   >
-                    <span>Discover More</span>
+                    <span>View Product</span>
                     <span>↗</span>
-                  </a>
-                  <Link to={`/products/${product.id}`} className="skeuo-btn-secondary">
-                    <span>Specs</span>
-                    <span>→</span>
                   </Link>
                 </div>
               </article>

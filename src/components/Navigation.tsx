@@ -11,11 +11,12 @@ interface NavigationProps {
 const NAV_LINKS = [
   { name: 'Home', path: '/' },
   { name: 'Projects', path: '/projects' },
+  { name: 'Work', path: '/work' },
   { name: 'Products', path: '/products' },
+  { name: 'Gallery', path: '/gallery' },
   { name: 'Services', path: '/services' },
   { name: 'Experience', path: '/experience' },
   { name: 'Initiatives', path: '/initiatives' },
-  { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' },
 ];
 
@@ -39,15 +40,18 @@ const Navigation: React.FC<NavigationProps> = ({ toggleTheme, currentTheme }) =>
 
   const isActive = (path: string) => {
     if (path === '/') return location.pathname === '/';
-    if (
-      (path === '/projects' || path === '/work') &&
-      (location.pathname === '/projects' ||
+    if (path === '/projects') {
+      return location.pathname === '/projects' || location.pathname.startsWith('/projects/');
+    }
+    if (path === '/work') {
+      return (
         location.pathname === '/work' ||
         location.pathname.startsWith('/project/') ||
-        location.pathname.startsWith('/projects/') ||
-        location.pathname.startsWith('/work/'))
-    ) {
-      return true;
+        location.pathname.startsWith('/work/')
+      );
+    }
+    if (path === '/gallery') {
+      return location.pathname === '/gallery';
     }
     if (path === '/services' && location.pathname === '/pricing') return true;
     if (path === '/initiatives' && location.pathname === '/ventures') return true;

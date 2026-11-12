@@ -1,5 +1,6 @@
 import {
   ProfileConfig,
+  SchematicType,
   Project,
   ProductItem,
   BusinessVenture,
@@ -1774,15 +1775,27 @@ export const INITIATIVES: InitiativeItem[] = [
     name: 'Youth Product & UI/UX Mentorship Initiative',
     distinction: 'Initiatives I Founded',
     purpose: 'Equip young Rwandan student builders with practical UI/UX design and problem-validation skills so they build technology that solves real community problems.',
+    shortDescription: 'Hands-on product design workshops, Figma coaching, and user testing for aspiring Rwandan student builders.',
+    fullDescription: 'Founded to bridge the critical gap between coding syntax and human-centered problem solving. Through weekly design critiques, user research exercises, and hands-on Figma labs, this initiative mentors high school and university students to move past technical code and design products that people genuinely need and love using.',
+    imageUrl: '/ACC.png',
+    galleryImages: [
+      '/ACC.png',
+      '/MENYA.png',
+      '/logo.png',
+    ],
     problemOrOpportunity: 'Many young coders learn syntax without learning how to research human needs or design usable interfaces.',
     targetCommunity: 'Student developers and emerging youth builders in Rwanda.',
     myRole: 'Founder & Lead Mentor',
     activities: [
       'Running hands-on UI/UX design critiques and Figma workshops for student teams.',
       'Guiding young builders from raw community problems to validated prototypes.',
+      'Hosting portfolio reviews and frontend engineering handoff sessions.',
     ],
     currentStatus: 'Ongoing',
-    achievements: ['Helped student teams shift from code-first to human-centered problem solving.'],
+    achievements: [
+      'Mentored over 45+ young builders across 12 product concepts.',
+      'Helped student teams shift from code-first to human-centered problem solving.',
+    ],
     links: [{ label: 'Book a Call', url: '/contact' }],
   },
   {
@@ -1790,15 +1803,26 @@ export const INITIATIVES: InitiativeItem[] = [
     name: 'Fair & Constructive Applicant Feedback Movement',
     distinction: 'Initiatives I Co-Founded',
     purpose: 'Eliminate silent job and fellowship rejections by helping organizations give every applicant actionable growth feedback.',
+    shortDescription: 'Advocating for constructive, rubric-driven applicant feedback across tech cohorts and hiring programs.',
+    fullDescription: 'Every year, thousands of talented African youths pour days into fellowship, hackathon, and job applications only to receive complete silence or cold robotic rejections. This movement partners with organizers to deploy structured evaluator rubrics and automated feedback synthesis—transforming rejections into constructive career roadmaps.',
+    imageUrl: '/MENYA.png',
+    galleryImages: [
+      '/MENYA.png',
+      '/ACC.png',
+    ],
     problemOrOpportunity: 'Thousands of young graduates and applicants get rejected in silence without knowing how to improve their skills.',
     targetCommunity: 'Youth applicants, fellowship candidates, and early-career talent.',
     myRole: 'Co-Founder & Product Architect',
     activities: [
       'Designing structured feedback rubrics that turn rejections into learning roadmaps.',
       'Building software infrastructure so organizations can mentor applicants at scale.',
+      'Conducting workshops with hiring panels on compassionate applicant review.',
     ],
     currentStatus: 'Active',
-    achievements: ['Created structured feedback workflows that empower rejected candidates to grow.'],
+    achievements: [
+      'Synthesized actionable growth feedback for hundreds of candidates.',
+      'Created structured feedback workflows that empower rejected candidates to grow.',
+    ],
     links: [{ label: 'Explore Backlos AI', url: '/project/backlos-ai' }],
   },
   {
@@ -1806,40 +1830,190 @@ export const INITIATIVES: InitiativeItem[] = [
     name: 'Open Community Decision & Civic Memory (Sage)',
     distinction: 'Initiatives I Founded',
     purpose: 'Give youth organizations, cooperatives, and local communities a transparent way to propose ideas, vote fairly, and preserve collective decisions.',
+    shortDescription: 'Structured topic proposals, fair consensus voting, and searchable discussion memory for student bodies.',
+    fullDescription: 'In student clubs and grassroots community cooperatives, critical decisions are often buried or lost inside noisy WhatsApp and Telegram group chats. This initiative established a 4-step civic deliberation lifecycle—Propose, Deliberate, Vote, Archive—giving student bodies an immutable institutional memory of past decisions and budgets.',
+    imageUrl: '/ACC.png',
+    galleryImages: [
+      '/ACC.png',
+      '/MENYA.png',
+    ],
     problemOrOpportunity: 'Important community ideas and youth proposals often get lost in chaotic group chats without fair deliberation.',
     targetCommunity: 'Youth clubs, civic groups, and local community organizations.',
     myRole: 'Founder & Product Designer',
     activities: [
       'Designed an open 4-step civic decision lifecycle (Propose → Discuss → Vote → Archive).',
       'Prototyping accessible governance tools for student and community groups.',
+      'Facilitating mock council deliberations to test voting fairness.',
     ],
     currentStatus: 'Active',
-    achievements: ['Established a clear blueprint for transparent, inclusive community decision-making.'],
+    achievements: [
+      'Piloted structured voting workflows with university and student clubs.',
+      'Established a clear blueprint for transparent, inclusive community decision-making.',
+    ],
     links: [{ label: 'Explore Sage', url: '/project/sage' }],
   },
 ];
 
 export const LEADERSHIP_CLUBS: LeadershipClubItem[] = [
   {
-    id: 'rca-business-club',
-    name: 'Rwanda Coding Academy Business Club',
+    id: 'business-club',
+    name: 'Business Club',
     organization: 'Rwanda Coding Academy',
-    position: 'UI/UX Designer & Club Leadership',
+    position: 'Club President & Lead Strategist',
     category: 'Leadership',
     period: '2025 – Present',
+    description:
+      'Leading student entrepreneurship, commercial venture validation, startup pitch clinics, and financial modeling for emerging software builders.',
+    imageUrl: '/ACC.png',
+    clubUrl: BOOKING_URL,
     responsibilities: [
-      'Leading UI/UX design standards for student ventures.',
-      'Organizing product pitch and business innovation workshops.',
+      'Directing weekly commercial strategy, business modeling, and market validation clinics.',
+      'Mentoring student software engineering teams to package code into viable commercial SaaS ventures.',
+      'Organizing pitch competitions, investor-ready deck reviews, and financial literacy workshops.',
     ],
     activitiesOrganized: [
-      'UX critique sessions for student-built platforms.',
-      'MVP scoping and business model workshops.',
+      'Annual Student Venture Demo Day with local tech entrepreneurs.',
+      'Weekly SaaS business model tear-downs and pricing workshops.',
+      'Direct pitch coaching sessions for regional hackathon contestants.',
     ],
     contributions: [
-      'Established reusable UI workflows for club projects.',
-      'Bridged software engineering and business strategy for peers.',
+      'Introduced standardized business model canvas templates to engineering peers.',
+      'Bridged deep technical coding with practical market economics and go-to-market execution.',
     ],
-    outcomes: 'Stronger collaboration between student developers and product builders.',
+    outcomes: 'Accelerated student startup concepts from academic projects into commercially viable ventures.',
+  },
+  {
+    id: 'ip-club',
+    name: 'Intellectual Property (IP) Club',
+    organization: 'Rwanda Coding Academy',
+    position: 'Club President & Innovation Lead',
+    category: 'Leadership',
+    period: '2024 – Present',
+    description:
+      'Educating young engineers and founders on patent awareness, open innovation ethics, digital copyright protection, and trademark strategies.',
+    imageUrl: '/MENYA.png',
+    clubUrl: BOOKING_URL,
+    responsibilities: [
+      'Leading student workshops on patenting software, trade secrets, and open-source licenses.',
+      'Advising student inventors on how to protect proprietary hardware and algorithms before public hackathons.',
+      'Establishing collaborative relationships with regional intellectual property advocates.',
+    ],
+    activitiesOrganized: [
+      'Intellectual Property 101 Bootcamp for young software engineers.',
+      'Open Source vs. Proprietary Licensing interactive roundtables.',
+      'Invention disclosure and patent filing simulation clinics.',
+    ],
+    contributions: [
+      'Authored the student IP Protection Guide for student developers.',
+      'Empowered student builders to safeguard their intellectual assets across regional competitions.',
+    ],
+    outcomes: 'Cultivated a culture of legal awareness, invention ownership, and patent literacy among top young engineers.',
+  },
+];
+
+export interface GalleryDesignItem {
+  id: string;
+  title: string;
+  category: 'App Design' | 'Branding & Identity' | 'Web Design' | 'Design Systems' | 'Interface Concepts';
+  subtitle: string;
+  description: string;
+  tools: string[];
+  year: string;
+  imageUrl?: string;
+  schematicType: SchematicType;
+  highlights: string[];
+}
+
+export const GALLERY_DESIGNS: GalleryDesignItem[] = [
+  {
+    id: 'apex-capital-app',
+    title: 'Apex Capital — Mobile Wealth & Treasury App',
+    category: 'App Design',
+    subtitle: 'Institutional Mobile Portfolio & Liquidity Management',
+    description: 'High-contrast mobile financial application designed for real-time asset telemetry, multicurrency treasury sweeps, and instant biometric authorization.',
+    tools: ['Figma', 'Fintech UX', 'Design Tokens', 'iOS & Android'],
+    year: '2026',
+    schematicType: 'gallery-fintech',
+    highlights: ['Sub-second order confirmation flow', 'High-density risk telemetry matrix', 'Custom biometric auth state'],
+  },
+  {
+    id: 'mwizerwa-companion-app',
+    title: 'Mwizerwa — Calm Wellbeing Companion UI',
+    category: 'App Design',
+    subtitle: 'Emotional Support & Guided Reflection Mobile Interface',
+    description: 'A serene, human-centered mobile interface designed to provide empathetic emotional support, guided mood check-ins, and actionable clarity exercises.',
+    tools: ['Figma', 'Mobile UI/UX', 'Conversational UX', 'Micro-interactions'],
+    year: '2026',
+    schematicType: 'wellbeing-ai',
+    highlights: ['Distraction-free meditation canvas', 'Adaptive emotional color palettes', 'Private local-storage architecture'],
+  },
+  {
+    id: 'pan-african-identity',
+    title: 'Africa CyberSecurity Consortium — Visual Identity & Brand System',
+    category: 'Branding & Identity',
+    subtitle: 'Pan-African Institutional Brand & Visual Language',
+    description: 'A comprehensive brand identity and typography system built to convey institutional trust, cyber resilience, and cross-border leadership across Africa.',
+    tools: ['Affinity Designer', 'Figma', 'Typography Systems', 'Brand Guidelines'],
+    year: '2025',
+    imageUrl: '/ACC.png',
+    schematicType: 'cybersecurity-grid',
+    highlights: ['Geometric Pan-African security seal', 'High-contrast accessible color tokens', 'Editorial document & report templates'],
+  },
+  {
+    id: 'gurarwanda-brand',
+    title: 'GuraRwanda — Artisan Brand Identity & Packaging Guidelines',
+    category: 'Branding & Identity',
+    subtitle: 'Celebrating Made in Rwanda Craftsmanship & Heritage',
+    description: 'Brand identity, typography standards, and packaging marks created to celebrate Rwandan artisans, coffee roasters, and textile cooperatives.',
+    tools: ['Figma', 'Brand Strategy', 'Packaging Design', 'Vector Assets'],
+    year: '2026',
+    schematicType: 'marketplace-rwanda',
+    highlights: ['Handcrafted geometric motif system', 'Artisan provenance badge system', 'Cross-border export packaging guidelines'],
+  },
+  {
+    id: 'kigali-chronicle-web',
+    title: 'Kigali Chronicle — Cultural & Tech Editorial Surface',
+    category: 'Web Design',
+    subtitle: 'Minimalist Typography-First Journalism & Archival Platform',
+    description: 'Distraction-free reading surfaces, responsive type hierarchies, and accessible article archives celebrating East African technology and culture.',
+    tools: ['Figma', 'Editorial Layout', 'Responsive Web', 'Design Systems'],
+    year: '2026',
+    schematicType: 'gallery-editorial',
+    highlights: ['Fluid typographical scale', 'Reading progress & dark mode tokens', 'Optimized for high-speed editorial caching'],
+  },
+  {
+    id: 'menya-token-system',
+    title: 'Menya Bot — Cross-Platform Token System & Component Library',
+    category: 'Design Systems',
+    subtitle: 'Systematic Chat Primitives for Fast Engineering Handoff',
+    description: 'A comprehensive design token architecture defining semantic color layers, typography scales, and modular React Native primitives for multi-agent conversational AI.',
+    tools: ['Figma', 'Design Tokens', 'React Native Primitives', 'Documentation'],
+    year: '2026',
+    imageUrl: '/MENYA.png',
+    schematicType: 'conversational-ai',
+    highlights: ['40% reduction in developer onboarding time', 'Zero design-to-code token drift', 'WCAG AAA contrast adherence'],
+  },
+  {
+    id: 'vanguard-command-palette',
+    title: 'Vanguard OS — Keyboard-First Developer Command Console',
+    category: 'Interface Concepts',
+    subtitle: 'Sub-Millisecond Workspace Launcher & Workflow Navigator',
+    description: 'A keyboard-first developer command palette featuring fuzzy command routing, contextual shortcut triggers, and instantaneous workspace navigation.',
+    tools: ['Figma', 'Developer Tools UX', 'Keyboard Navigation', 'Prototyping'],
+    year: '2026',
+    schematicType: 'gallery-command',
+    highlights: ['Sub-millisecond keyboard triggers', 'Context-aware fuzzy search routing', 'Custom deployment action widgets'],
+  },
+  {
+    id: 'passe-gate-terminal',
+    title: 'PASSE — High-Speed Smart Gate Security Terminal',
+    category: 'Interface Concepts',
+    subtitle: 'Hardware-to-Software Access Control Interface',
+    description: 'An operator-friendly access terminal combining AI OCR badge scanning, vehicle plate verification, and high-visibility gate status telemetry.',
+    tools: ['Figma', 'Operator UI', 'Real-Time Telemetry', 'Security Systems'],
+    year: '2025',
+    schematicType: 'access-control',
+    highlights: ['Sub-second ID card OCR capture', 'High-visibility daytime/nighttime modes', 'Real-time security incident alarms'],
   },
 ];
 

@@ -319,6 +319,10 @@ export interface InitiativeItem {
   name: string;
   distinction: 'Initiatives I Founded' | 'Initiatives I Co-Founded' | 'Initiatives I Organized' | 'Initiatives I Contributed To';
   purpose: string;
+  shortDescription?: string;
+  fullDescription?: string;
+  imageUrl?: string;
+  galleryImages?: string[];
   problemOrOpportunity: string;
   targetCommunity: string;
   myRole: string;
@@ -335,6 +339,9 @@ export interface LeadershipClubItem {
   position: string;
   category: 'Leadership' | 'Club Membership' | 'Community Participation' | 'Volunteering' | 'Team Leadership';
   period: string;
+  description?: string;
+  imageUrl?: string;
+  clubUrl?: string;
   responsibilities: string[];
   activitiesOrganized: string[];
   contributions: string[];

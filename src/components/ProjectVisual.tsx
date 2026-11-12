@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { SchematicType } from '../types';
 
 interface ProjectVisualProps {
@@ -350,46 +350,14 @@ export function buildMockupThumbnailDataUri(
 }
 
 const ProjectVisual: React.FC<ProjectVisualProps> = ({
-  id,
   imageUrl,
-  logoUrl = '/logo.png',
   title,
   category,
   schematicType,
   status,
   aspectClass = 'aspect-16/10',
-  hideLogoBadge = false,
   className = '',
 }) => {
-  const storageKey = `amani_logo_${id || title.toLowerCase().replace(/\s+/g, '-')}`;
-  const [customLogo, setCustomLogo] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem(storageKey);
-      if (saved) setCustomLogo(saved);
-    } catch {
-      // ignore
-    }
-  }, [storageKey]);
-
-  const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-      const result = reader.result as string;
-      setCustomLogo(result);
-      try {
-        localStorage.setItem(storageKey, result);
-      } catch {
-        // ignore quota
-      }
-    };
-    reader.readAsDataURL(file);
-  };
-
   const thumbnailSrc =
     imageUrl || buildMockupThumbnailDataUri(title, category, schematicType);
 
@@ -403,49 +371,6 @@ const ProjectVisual: React.FC<ProjectVisualProps> = ({
           loading="lazy"
           className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
         />
-
-        {/* Top-Left Product/Project Logo Slot + Improvised Upload Trigger */}
-        {!hideLogoBadge && (
-          <div
-            className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 glass-pill p-1 pr-2.5 rounded-xl"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-            }}
-          >
-            <div className="w-7 h-7 rounded-lg bg-white border border-black/10 p-0.5 flex items-center justify-center overflow-hidden shrink-0">
-              <img
-                src={customLogo || logoUrl}
-                alt={`${title} logo`}
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                fileInputRef.current?.click();
-              }}
-              title="Upload custom logo for this item"
-              className="text-[10px] font-bold text-fg hover:underline cursor-pointer flex items-center gap-1"
-            >
-              <span>Logo</span>
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="17 8 12 3 7 8" />
-                <line x1="12" y1="3" x2="12" y2="15" />
-              </svg>
-            </button>
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept="image/*"
-              onChange={handleLogoUpload}
-              className="hidden"
-            />
-          </div>
-        )}
 
         {/* Top-Right Status Badge */}
         {status && (

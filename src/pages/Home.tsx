@@ -19,12 +19,12 @@ const Home: React.FC = () => {
       <Hero />
       {/* SECTION 01 — Ventures & Initiatives */}
       <VenturesSection compact />
-      {/* SECTION 02 — Products & Experiments */}
-      <ProductsSection showViewAll />
+      {/* SECTION 02 — Products & Experiments (Curated Selection on Home) */}
+      <ProductsSection showViewAll limit={3} />
       {/* SECTION 03 — Studios & Agencies */}
       <StudiosSection showHeaderLink />
-      {/* SECTION 04 — Selected Work & Design Gallery */}
-      <SelectedWork showHeaderLink />
+      {/* SECTION 04 — Selected Work (Curated Selection on Home) */}
+      <SelectedWork showHeaderLink limit={3} />
       <Services />
       <ToolsSection />
       <ExperiencePreview />

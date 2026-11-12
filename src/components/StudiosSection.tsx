@@ -102,20 +102,31 @@ const StudiosSection: React.FC<StudiosSectionProps> = ({ showHeaderLink = true }
                 </div>
               </div>
 
-              {/* Studio Action Footer with Required "Discover More" Booking CTA */}
-              <div className="pt-4 border-t border-border flex items-center justify-between gap-3">
+              {/* Agency Action Footer with two buttons: Book a Call & View Website */}
+              <div className="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-2.5">
                 <span className="text-[11px] text-muted font-bold truncate">
                   {studio.role}
                 </span>
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="skeuo-btn shrink-0"
-                >
-                  <span>Discover More</span>
-                  <span>↗</span>
-                </a>
+                <div className="flex items-center gap-2 shrink-0">
+                  <a
+                    href={BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="skeuo-btn"
+                  >
+                    <span>Book a Call</span>
+                    <span>↗</span>
+                  </a>
+                  <a
+                    href={studio.websiteUrl || BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="skeuo-btn-secondary"
+                  >
+                    <span>View Website</span>
+                    <span>↗</span>
+                  </a>
+                </div>
               </div>
             </article>
           ))}

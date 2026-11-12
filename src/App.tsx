@@ -3,7 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
+import ProjectsPage from './pages/ProjectsPage';
 import WorkPage from './pages/WorkPage';
+import GalleryPage from './pages/GalleryPage';
 import ProjectDetails from './pages/ProjectDetails';
 import ProductsPage from './pages/ProductsPage';
 import ProductDetails from './pages/ProductDetails';
@@ -36,9 +38,10 @@ function App() {
       <Layout toggleTheme={toggleTheme} currentTheme={theme}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<WorkPage />} />
-          <Route path="/project" element={<WorkPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/project" element={<ProjectsPage />} />
           <Route path="/work" element={<WorkPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/work/:id" element={<ProjectDetails />} />
           <Route path="/project/:id" element={<ProjectDetails />} />
           <Route path="/projects/:id" element={<ProjectDetails />} />

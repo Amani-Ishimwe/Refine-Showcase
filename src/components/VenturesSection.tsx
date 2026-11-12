@@ -237,24 +237,20 @@ const VentureCarouselCard: React.FC<VentureCarouselCardProps> = ({ venture }) =>
             </div>
           </div>
 
-          {/* Action Row matching "Visit Website ↗" in Photo */}
-          <div className="pt-3 border-t border-border flex flex-wrap items-center justify-between gap-2">
+          {/* Exactly one button: View Product */}
+          <div className="pt-3 border-t border-border flex items-center justify-between gap-2">
+            <span className="text-[11px] text-muted font-bold truncate">
+              {venture.role}
+            </span>
             <a
               href={destinationUrl}
-              target="_blank"
+              target={destinationUrl.startsWith('http') ? '_blank' : undefined}
               rel="noopener noreferrer"
               className="skeuo-btn shrink-0"
             >
-              <span>Visit Website</span>
+              <span>View Product</span>
               <span>↗</span>
             </a>
-
-            {venture.caseStudyPath && (
-              <Link to={venture.caseStudyPath} className="skeuo-btn-secondary shrink-0">
-                <span>Case Study</span>
-                <span>→</span>
-              </Link>
-            )}
           </div>
         </div>
       </div>

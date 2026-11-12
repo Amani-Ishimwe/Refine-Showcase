@@ -15,9 +15,13 @@ const WORK_CATEGORIES: SelectedWorkCategory[] = [
 
 interface SelectedWorkProps {
   showHeaderLink?: boolean;
+  limit?: number;
 }
 
-const SelectedWork: React.FC<SelectedWorkProps> = ({ showHeaderLink = true }) => {
+const SelectedWork: React.FC<SelectedWorkProps> = ({
+  showHeaderLink = true,
+  limit,
+}) => {
   const [activeCategory, setActiveCategory] = useState<SelectedWorkCategory>('All');
   const [lightboxItem, setLightboxItem] = useState<SelectedWorkItem | null>(null);
 
@@ -25,6 +29,8 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ showHeaderLink = true }) =>
     if (activeCategory === 'All') return true;
     return item.category === activeCategory || item.secondaryCategory === activeCategory;
   });
+
+  const displayedItems = limit ? filteredItems.slice(0, limit) : filteredItems;
 
   // Keyboard navigation for the interactive Lightbox
   useEffect(() => {
@@ -105,7 +111,7 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ showHeaderLink = true }) =>
 
         {/* Unified Equal-Height Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-          {filteredItems.map((item) => (
+          {displayedItems.map((item) => (
             <article
               key={item.id}
               className="skeuo-card p-5 sm:p-6 h-full flex flex-col justify-between space-y-5"
@@ -186,15 +192,15 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ showHeaderLink = true }) =>
                 </div>
               </div>
 
-              {/* Action Row with Uniform Button Height and "Discover More" CTA */}
+              {/* Action Row with View Work */}
               <div className="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-2">
                 <a
-                  href={BOOKING_URL}
-                  target="_blank"
+                  href={item.externalUrl || item.caseStudyPath || BOOKING_URL}
+                  target={item.externalUrl ? '_blank' : undefined}
                   rel="noopener noreferrer"
                   className="skeuo-btn"
                 >
-                  <span>Discover More</span>
+                  <span>View Work</span>
                   <span>↗</span>
                 </a>
 
@@ -204,17 +210,6 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ showHeaderLink = true }) =>
                       <span>Case Study</span>
                       <span>→</span>
                     </Link>
-                  )}
-                  {item.externalUrl && (
-                    <a
-                      href={item.externalUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="skeuo-btn-secondary"
-                    >
-                      <span>Live</span>
-                      <span>↗</span>
-                    </a>
                   )}
                 </div>
               </div>
@@ -289,12 +284,12 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ showHeaderLink = true }) =>
                   </Link>
                 )}
                 <a
-                  href={BOOKING_URL}
-                  target="_blank"
+                  href={lightboxItem.externalUrl || lightboxItem.caseStudyPath || BOOKING_URL}
+                  target={lightboxItem.externalUrl ? '_blank' : undefined}
                   rel="noopener noreferrer"
                   className="skeuo-btn"
                 >
-                  <span>Discover More</span>
+                  <span>View Work</span>
                   <span>↗</span>
                 </a>
               </div>
