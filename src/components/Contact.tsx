@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="space-y-3 max-w-2xl">
-            <span className="label">10 · Contact & Availability</span>
+            <span className="label">08 · Contact & Availability</span>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-fg leading-tight">
               Ready to build your next product?
             </h2>

@@ -6,7 +6,7 @@ const Hero: React.FC = () => {
   return (
     <section className="editorial-container pt-6 pb-12 sm:pt-10 sm:pb-16 space-y-6 sm:space-y-8">
       {/* Main Tactile Glass/Skeuomorphic Hero Card */}
-      <div className="skeuo-card p-6 sm:p-10 lg:p-12">
+      <div className="skeuo-card p-6 sm:p-10 lg:p-12 animate-hero-enter">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left Identity & Action Column */}
           <div className="lg:col-span-7 xl:col-span-8 space-y-6">

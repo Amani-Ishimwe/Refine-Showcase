@@ -19,7 +19,13 @@ export type SchematicType =
   | 'gallery-ai-workspace'
   | 'gallery-commerce'
   | 'gallery-design-system'
-  | 'gallery-command';
+  | 'gallery-command'
+  | 'gallery-autonomi'
+  | 'gallery-analytics'
+  | 'gallery-mobile-app'
+  | 'gallery-brand-agaciro'
+  | 'stretch-cloud'
+  | 'rp-eportfolio';
 
 export type ProjectFilterCategory =
   | 'All'

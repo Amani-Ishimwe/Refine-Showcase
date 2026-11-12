@@ -162,7 +162,7 @@ const VentureCarouselCard: React.FC<VentureCarouselCardProps> = ({ venture }) =>
 
   return (
     <article
-      className="w-[88vw] sm:w-[680px] lg:w-[840px] xl:w-[920px] shrink-0 snap-center rounded-2xl sm:rounded-3xl p-5 sm:p-7 lg:p-8 skeuo-card transition-all duration-300 flex flex-col justify-between"
+      className="w-[88vw] max-w-[92vw] sm:w-[680px] lg:w-[840px] xl:w-[920px] shrink-0 snap-center rounded-2xl sm:rounded-3xl p-4 sm:p-7 lg:p-8 skeuo-card transition-all duration-300 flex flex-col justify-between"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
         {/* Left Column: Pastel Canvas with Laptop Screen Device Frame */}

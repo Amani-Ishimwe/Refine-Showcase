@@ -2,32 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { GALLERY_DESIGNS, GalleryDesignItem, BOOKING_URL } from '../constants';
 import SEOHead from '../components/SEOHead';
-import ProjectVisual, { buildMockupThumbnailDataUri } from '../components/ProjectVisual';
-
-type GalleryFilter =
-  | 'All'
-  | 'App Design'
-  | 'Branding & Identity'
-  | 'Web Design'
-  | 'Design Systems'
-  | 'Interface Concepts';
-
-const FILTER_CATEGORIES: GalleryFilter[] = [
-  'All',
-  'App Design',
-  'Branding & Identity',
-  'Web Design',
-  'Design Systems',
-  'Interface Concepts',
-];
+import ScrollReveal from '../components/ScrollReveal';
+import { buildMockupThumbnailDataUri } from '../components/ProjectVisual';
 
 const GalleryPage: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<GalleryFilter>('All');
   const [lightboxItem, setLightboxItem] = useState<GalleryDesignItem | null>(null);
-
-  const filteredItems = GALLERY_DESIGNS.filter(
-    (item) => activeCategory === 'All' || item.category === activeCategory
-  );
 
   // Keyboard navigation for gallery lightbox
   useEffect(() => {
@@ -37,15 +16,15 @@ const GalleryPage: React.FC = () => {
       if (e.key === 'Escape') {
         setLightboxItem(null);
       } else if (e.key === 'ArrowRight') {
-        const currentIndex = filteredItems.findIndex((i) => i.id === lightboxItem.id);
+        const currentIndex = GALLERY_DESIGNS.findIndex((i) => i.id === lightboxItem.id);
         if (currentIndex >= 0) {
-          setLightboxItem(filteredItems[(currentIndex + 1) % filteredItems.length]);
+          setLightboxItem(GALLERY_DESIGNS[(currentIndex + 1) % GALLERY_DESIGNS.length]);
         }
       } else if (e.key === 'ArrowLeft') {
-        const currentIndex = filteredItems.findIndex((i) => i.id === lightboxItem.id);
+        const currentIndex = GALLERY_DESIGNS.findIndex((i) => i.id === lightboxItem.id);
         if (currentIndex >= 0) {
           setLightboxItem(
-            filteredItems[(currentIndex - 1 + filteredItems.length) % filteredItems.length]
+            GALLERY_DESIGNS[(currentIndex - 1 + GALLERY_DESIGNS.length) % GALLERY_DESIGNS.length]
           );
         }
       }
@@ -53,7 +32,7 @@ const GalleryPage: React.FC = () => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxItem, filteredItems]);
+  }, [lightboxItem]);
 
   const getImageSrc = (item: GalleryDesignItem) =>
     item.imageUrl || buildMockupThumbnailDataUri(item.title, item.category, item.schematicType);
@@ -61,143 +40,72 @@ const GalleryPage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="Design Gallery — Apps, Branding & Visual Systems"
-        description="Curated gallery of app designs, brand identities, design systems, and interface concepts by Ishimwe Amani Samuel."
+        title="Design Gallery — Visual Craft & Interfaces"
+        description="Visual gallery of app designs, dashboards, mobile interfaces, and brand identities by Ishimwe Amani Samuel."
       />
       <div className="editorial-container pt-6 pb-2">
         <div className="skeuo-card p-6 sm:p-8 space-y-2">
           <div className="flex items-center gap-2 text-xs text-muted font-bold">
             <Link to="/" className="hover:text-fg">Home</Link>
             <span>/</span>
-            <span className="text-fg">Design Gallery</span>
+            <span className="text-fg">Gallery</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-fg">
-            Apps, Branding &amp; Visual Systems
+            Design Gallery
           </h1>
           <p className="text-xs sm:text-sm text-muted max-w-xl">
-            A dedicated visual gallery showcasing mobile apps, branding identities, design token systems, and interface craft.
+            A curated visual showcase of application interfaces, SaaS analytics dashboards, mobile experiences, and brand identity systems.
           </p>
         </div>
       </div>
 
       <section className="section-padding">
-        <div className="editorial-container space-y-10">
-          {/* Category Filter Tabs */}
-          <div
-            className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-border"
-            role="tablist"
-            aria-label="Filter designs"
-          >
-            {FILTER_CATEGORIES.map((cat) => {
-              const active = activeCategory === cat;
-              return (
-                <button
-                  key={cat}
-                  type="button"
-                  role="tab"
-                  aria-selected={active}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`cursor-pointer shrink-0 ${
-                    active ? 'skeuo-btn' : 'skeuo-btn-secondary text-muted'
-                  }`}
+        <div className="editorial-container">
+          {/* Visual 2-Column Grid Matching Photo 1 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {GALLERY_DESIGNS.map((item, idx) => (
+              <ScrollReveal key={item.id} delayMs={idx % 2 === 0 ? 0 : 80}>
+                <article
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setLightboxItem(item)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setLightboxItem(item);
+                    }
+                  }}
+                  aria-label={`Inspect ${item.title}`}
+                  className="group relative cursor-pointer aspect-16/10 rounded-2xl sm:rounded-3xl overflow-hidden border border-border bg-surface shadow-md hover:-translate-y-1 transition-all duration-300"
                 >
-                  {cat}
-                </button>
-              );
-            })}
-          </div>
+                  {/* Full-Bleed Artwork Image */}
+                  <img
+                    src={getImageSrc(item)}
+                    alt={item.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  />
 
-          {/* Design Gallery Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-            {filteredItems.map((design) => (
-              <article
-                key={design.id}
-                className="skeuo-card p-5 sm:p-6 h-full flex flex-col justify-between space-y-4 hover:-translate-y-0.5 transition-transform"
-              >
-                <div className="space-y-4">
-                  {/* Clickable Image Preview */}
-                  <div
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => setLightboxItem(design)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        setLightboxItem(design);
-                      }
-                    }}
-                    aria-label={`Inspect ${design.title}`}
-                    className="cursor-pointer group relative aspect-16/10 rounded-xl overflow-hidden border border-border bg-surface"
-                  >
-                    <ProjectVisual
-                      imageUrl={design.imageUrl}
-                      title={design.title}
-                      category={design.category}
-                      schematicType={design.schematicType}
-                      status={design.year}
-                    />
-                    <div className="absolute bottom-2.5 right-2.5 glass-pill px-2.5 py-1 rounded-md text-[10px] font-bold text-fg opacity-90 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                      <span>Inspect Design</span>
-                      <span>⤢</span>
-                    </div>
-                  </div>
+                  {/* Bottom Dark Gradient Scrim matching Photo 1 */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
 
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="skeuo-inset px-2.5 py-0.5 text-[10px] uppercase font-bold text-fg">
-                      {design.category}
+                  {/* Bottom-Left Caption Overlay matching Photo 1 */}
+                  <div className="absolute bottom-5 sm:bottom-6 left-5 sm:left-7 right-5 sm:right-7 z-10 space-y-1">
+                    <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-white/70 font-bold block">
+                      {item.categoryTag}
                     </span>
-                    <span className="text-xs text-muted font-bold">
-                      {design.year}
-                    </span>
-                  </div>
-
-                  <div className="space-y-1">
-                    <h2 className="text-lg sm:text-xl font-bold text-fg tracking-tight">
-                      {design.title}
+                    <h2 className="text-lg sm:text-2xl font-bold text-white tracking-tight leading-snug drop-shadow-sm">
+                      {item.title}
                     </h2>
-                    <p className="text-xs font-bold text-fg/80">
-                      {design.subtitle}
-                    </p>
-                    <p className="text-xs text-muted leading-relaxed line-clamp-3 pt-1">
-                      {design.description}
-                    </p>
                   </div>
 
-                  {/* Highlights */}
-                  <ul className="skeuo-inset p-3 space-y-1">
-                    {design.highlights.slice(0, 2).map((item, idx) => (
-                      <li key={idx} className="text-[11px] text-fg flex items-start gap-2">
-                        <span className="text-muted font-bold">▪</span>
-                        <span className="line-clamp-1">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Unwrapped Tools */}
-                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] text-muted font-bold">
-                    {design.tools.map((tool, idx) => (
-                      <React.Fragment key={tool}>
-                        {idx > 0 && <span className="opacity-40">·</span>}
-                        <span>{tool}</span>
-                      </React.Fragment>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-border flex items-center justify-between gap-2">
-                  <span className="text-[11px] text-muted font-bold">
-                    Visual Craft
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => setLightboxItem(design)}
-                    className="skeuo-btn shrink-0 cursor-pointer"
-                  >
+                  {/* Top-Right Inspect Cue */}
+                  <div className="absolute top-4 right-4 z-10 glass-pill px-2.5 py-1 rounded-lg text-[10px] font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5">
                     <span>Inspect</span>
                     <span>⤢</span>
-                  </button>
-                </div>
-              </article>
+                  </div>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -209,7 +117,7 @@ const GalleryPage: React.FC = () => {
           role="dialog"
           aria-modal="true"
           aria-label={lightboxItem.title}
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md"
           onClick={() => setLightboxItem(null)}
         >
           <div
@@ -219,7 +127,7 @@ const GalleryPage: React.FC = () => {
             <div className="flex items-center justify-between gap-3 border-b border-border pb-3">
               <div>
                 <span className="text-[10px] uppercase tracking-widest text-muted font-bold block">
-                  {lightboxItem.category} · {lightboxItem.year}
+                  {lightboxItem.categoryTag} · {lightboxItem.year}
                 </span>
                 <h3 className="text-lg sm:text-2xl font-bold text-fg">
                   {lightboxItem.title}
@@ -251,17 +159,19 @@ const GalleryPage: React.FC = () => {
                 {lightboxItem.description}
               </p>
 
-              <div className="skeuo-inset p-3.5 space-y-1.5">
-                <span className="text-[10px] uppercase tracking-wider text-muted font-bold block">
-                  Craft &amp; Architecture Decisions
-                </span>
-                {lightboxItem.highlights.map((h, i) => (
-                  <p key={i} className="text-xs text-fg flex items-start gap-2">
-                    <span className="text-muted font-bold">▪</span>
-                    <span>{h}</span>
-                  </p>
-                ))}
-              </div>
+              {lightboxItem.highlights && (
+                <div className="skeuo-inset p-3.5 space-y-1.5">
+                  <span className="text-[10px] uppercase tracking-wider text-muted font-bold block">
+                    Design &amp; Architecture Highlights
+                  </span>
+                  {lightboxItem.highlights.map((h, i) => (
+                    <p key={i} className="text-xs text-fg flex items-start gap-2">
+                      <span className="text-muted font-bold">▪</span>
+                      <span>{h}</span>
+                    </p>
+                  ))}
+                </div>
+              )}
 
               <div className="flex flex-wrap items-center gap-x-2 text-[11px] text-muted font-bold pt-1">
                 <span className="text-fg">Tools &amp; Methods:</span>

@@ -9,7 +9,7 @@ const ExperiencePreview: React.FC = () => {
         {/* Unified Main Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
           <div className="space-y-2 max-w-2xl">
-            <span className="label">07 · Experience Roadmap & Leadership</span>
+            <span className="label">06 · Experience Roadmap & Leadership</span>
             <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-fg leading-[1.12]">
               Professional roadmap & leadership.
             </h2>
@@ -40,8 +40,8 @@ const ExperiencePreview: React.FC = () => {
             {EXPERIENCE_ENTRIES.map((entry, idx) => (
               <div key={entry.id} className="relative group">
                 {/* Milestone Node on the Roadmap Line */}
-                <div className="absolute -left-6 sm:-left-10 top-5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-surface border-2 border-fg flex items-center justify-center -translate-x-1/2 group-hover:scale-110 transition-transform">
-                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-fg" />
+                <div className="absolute -left-6 sm:-left-10 top-5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-surface border-2 border-fg flex items-center justify-center -translate-x-1/2 group-hover:scale-125 group-hover:border-[#38bdf8] group-hover:shadow-[0_0_8px_rgba(56,189,248,0.5)] transition-all duration-300">
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-fg group-hover:bg-[#38bdf8] transition-colors" />
                 </div>
 
                 {/* Milestone Content Card */}

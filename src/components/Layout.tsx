@@ -54,6 +54,7 @@ const Layout: React.FC<LayoutProps> = ({ children, toggleTheme, currentTheme }) 
                 <ul className="space-y-1.5 text-muted">
                   <li><Link to="/work" className="hover:text-fg">Work</Link></li>
                   <li><Link to="/products" className="hover:text-fg">Products</Link></li>
+                  <li><Link to="/gallery" className="hover:text-fg">Gallery</Link></li>
                   <li><Link to="/services" className="hover:text-fg">Services</Link></li>
                   <li><Link to="/pricing" className="hover:text-fg">Pricing</Link></li>
                 </ul>

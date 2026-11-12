@@ -168,13 +168,11 @@ const ToolsSection: React.FC = () => {
 
   return (
     <section id="tools" className="section-padding overflow-hidden">
-      <div className="editorial-container space-y-6">
-        <div className="space-y-1">
-          <span className="label">06 · Tools & Stack</span>
-          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-fg">
-            Tools I use daily.
-          </h2>
-        </div>
+      <div className="editorial-container space-y-3">
+        <span className="label">Tools &amp; Stack</span>
+        <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-fg">
+          Tools I use daily.
+        </h2>
       </div>
 
       {/* Unwrapped Continuous Sliding Track of Real-World Logos (Black in Light Mode, Crisp White in Dark Mode) */}
@@ -183,7 +181,7 @@ const ToolsSection: React.FC = () => {
           {marqueeItems.map((item, idx) => (
             <div
               key={`${item.name}-${idx}`}
-              className="inline-flex items-center gap-3 shrink-0 select-none text-fg"
+              className="inline-flex items-center gap-3 shrink-0 select-none text-fg hover:scale-110 transition-transform duration-200 cursor-default"
             >
               <span className="inline-flex items-center justify-center text-fg">
                 {item.svg}

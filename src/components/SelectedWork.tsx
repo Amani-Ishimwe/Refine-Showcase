@@ -114,7 +114,7 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({
           {displayedItems.map((item) => (
             <article
               key={item.id}
-              className="skeuo-card p-5 sm:p-6 h-full flex flex-col justify-between space-y-5"
+              className="skeuo-card p-5 sm:p-6 h-full flex flex-col justify-between space-y-5 hover:-translate-y-1 transition-all duration-300"
             >
               <div className="space-y-4">
                 {/* Visual Thumbnail with Click to Lightbox */}

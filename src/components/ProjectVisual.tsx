@@ -299,6 +299,164 @@ export function buildMockupThumbnailDataUri(
       `;
       break;
 
+    case 'gallery-autonomi':
+      // Autonomi Mobility Platform — Dark Mode Operations Console (Matching Photo 1)
+      innerGraphic = `
+        <rect x="70" y="128" width="660" height="232" rx="14" fill="#0d0d10" stroke="#222226" stroke-width="1.5"/>
+        <rect x="92" y="148" width="180" height="192" rx="10" fill="#141418" stroke="#27272a"/>
+        <circle cx="182" cy="205" r="38" fill="#1c1c22" stroke="#3f3f46"/>
+        <rect x="114" y="260" width="136" height="24" rx="6" fill="#27272a"/>
+        <text x="182" y="276" fill="#e4e4e7" font-family="sans-serif" font-size="11" font-weight="700" text-anchor="middle">FLEET ACTIVE</text>
+        
+        <rect x="290" y="148" width="418" height="192" rx="10" fill="#141418" stroke="#27272a"/>
+        <text x="312" y="176" fill="#a1a1aa" font-family="sans-serif" font-size="11" font-weight="700">FLEET TELEMETRY &amp; REAL-TIME EFFICIENCY</text>
+        <path d="M312 265 L360 230 L400 248 L460 195 L520 225 L580 180 L640 210 L680 170" stroke="#22c55e" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <rect x="312" y="295" width="85" height="26" rx="6" fill="#222226"/>
+        <rect x="410" y="295" width="85" height="26" rx="6" fill="#222226"/>
+        <rect x="508" y="295" width="85" height="26" rx="6" fill="#222226"/>
+        <rect x="606" y="295" width="85" height="26" rx="6" fill="#222226"/>
+      `;
+      break;
+
+    case 'gallery-analytics':
+      // Hano SaaS Analytics Dashboard — Light Mode (Matching Photo 1)
+      innerGraphic = `
+        <rect x="70" y="128" width="660" height="232" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+        <rect x="92" y="148" width="130" height="192" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+        <rect x="108" y="166" width="98" height="14" rx="4" fill="#0284c7"/>
+        <rect x="108" y="190" width="98" height="10" rx="3" fill="#e2e8f0"/>
+        <rect x="108" y="208" width="78" height="10" rx="3" fill="#e2e8f0"/>
+        <rect x="108" y="235" width="98" height="30" rx="6" fill="#f1f5f9"/>
+        <rect x="108" y="275" width="98" height="48" rx="6" fill="#f1f5f9"/>
+
+        <rect x="238" y="148" width="470" height="192" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+        <rect x="258" y="164" width="95" height="28" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+        <rect x="365" y="164" width="95" height="28" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+        <rect x="472" y="164" width="95" height="28" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+        
+        {/* Analytics Bar Chart Columns */}
+        <rect x="270" y="245" width="18" height="70" rx="4" fill="#0f172a"/>
+        <rect x="305" y="225" width="18" height="90" rx="4" fill="#0f172a"/>
+        <rect x="340" y="260" width="18" height="55" rx="4" fill="#0f172a"/>
+        <rect x="375" y="215" width="18" height="100" rx="4" fill="#0f172a"/>
+        <rect x="410" y="235" width="18" height="80" rx="4" fill="#0f172a"/>
+        <rect x="445" y="250" width="18" height="65" rx="4" fill="#0f172a"/>
+        <rect x="480" y="220" width="18" height="95" rx="4" fill="#0f172a"/>
+        <rect x="515" y="240" width="18" height="75" rx="4" fill="#0f172a"/>
+
+        <rect x="560" y="210" width="128" height="105" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+      `;
+      break;
+
+    case 'gallery-mobile-app':
+      // Areports Mobile App — 3 Smartphones Side-by-Side (Matching Photo 1)
+      innerGraphic = `
+        {/* Smartphone 1 (Left) */}
+        <rect x="150" y="132" width="145" height="225" rx="24" fill="#ffffff" stroke="#18181b" stroke-width="5"/>
+        <rect x="195" y="138" width="55" height="10" rx="5" fill="#18181b"/>
+        <rect x="165" y="160" width="115" height="34" rx="6" fill="#f1f5f9"/>
+        <rect x="175" y="172" width="40" height="14" rx="3" fill="#3b82f6"/>
+        <rect x="220" y="172" width="40" height="14" rx="3" fill="#f59e0b"/>
+        <rect x="165" y="205" width="115" height="95" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <rect x="175" y="250" width="12" height="40" rx="3" fill="#1e293b"/>
+        <rect x="195" y="235" width="12" height="55" rx="3" fill="#1e293b"/>
+        <rect x="215" y="245" width="12" height="45" rx="3" fill="#1e293b"/>
+        <rect x="235" y="225" width="12" height="65" rx="3" fill="#3b82f6"/>
+        <rect x="255" y="240" width="12" height="50" rx="3" fill="#1e293b"/>
+
+        {/* Smartphone 2 (Center) */}
+        <rect x="325" y="132" width="145" height="225" rx="24" fill="#ffffff" stroke="#18181b" stroke-width="5"/>
+        <rect x="370" y="138" width="55" height="10" rx="5" fill="#18181b"/>
+        <rect x="340" y="160" width="54" height="36" rx="6" fill="#f1f5f9"/>
+        <rect x="402" y="160" width="54" height="36" rx="6" fill="#f1f5f9"/>
+        <rect x="340" y="206" width="116" height="70" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <path d="M355 255 L380 235 L405 245 L435 220" stroke="#3b82f6" stroke-width="3" fill="none"/>
+        <rect x="340" y="286" width="116" height="35" rx="6" fill="#f1f5f9"/>
+
+        {/* Smartphone 3 (Right) */}
+        <rect x="500" y="132" width="145" height="225" rx="24" fill="#ffffff" stroke="#18181b" stroke-width="5"/>
+        <rect x="545" y="138" width="55" height="10" rx="5" fill="#18181b"/>
+        <rect x="515" y="160" width="115" height="30" rx="6" fill="#f1f5f9"/>
+        <rect x="520" y="168" width="45" height="14" rx="4" fill="#4f46e5"/>
+        <rect x="515" y="200" width="115" height="115" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <rect x="525" y="215" width="95" height="18" rx="4" fill="#e2e8f0"/>
+        <rect x="525" y="240" width="95" height="18" rx="4" fill="#e2e8f0"/>
+        <rect x="525" y="265" width="95" height="18" rx="4" fill="#e2e8f0"/>
+      `;
+      break;
+
+    case 'stretch-cloud':
+      // Stretch Cloud — African Cloud Hosting Platform (Matching Photo 2)
+      innerGraphic = `
+        <rect x="70" y="128" width="660" height="232" rx="14" fill="#1e1136" stroke="#4c1d95" stroke-width="1.5"/>
+        <rect x="90" y="146" width="620" height="196" rx="10" fill="#110724"/>
+        {/* Top Navbar */}
+        <rect x="90" y="146" width="620" height="30" rx="10" fill="#1c0b3b"/>
+        <text x="110" y="166" fill="#a78bfa" font-family="sans-serif" font-size="11" font-weight="700">PRICING</text>
+        <text x="175" y="166" fill="#7c3aed" font-family="sans-serif" font-size="11" font-weight="700">BLOG</text>
+        <text x="225" y="166" fill="#7c3aed" font-family="sans-serif" font-size="11" font-weight="700">DOCS</text>
+        
+        {/* Hero Content */}
+        <text x="110" y="215" fill="#ffffff" font-family="sans-serif" font-size="22" font-weight="800">You Could Scale</text>
+        <text x="110" y="242" fill="#ffffff" font-family="sans-serif" font-size="22" font-weight="800">Africa At Low Cost</text>
+        <text x="110" y="268" fill="#c4b5fd" font-family="sans-serif" font-size="9" font-weight="500">Stretch Cloud is an African, budget-friendly DigitalOcean alternative</text>
+        <text x="110" y="280" fill="#c4b5fd" font-family="sans-serif" font-size="9" font-weight="500">leveraging secure local data centers with payment in local currency.</text>
+        
+        {/* CTA Button */}
+        <rect x="110" y="296" width="105" height="28" rx="6" fill="#6d28d9"/>
+        <text x="162" y="314" fill="#ffffff" font-family="sans-serif" font-size="10" font-weight="700" text-anchor="middle">GET STARTED</text>
+      `;
+      break;
+
+    case 'rp-eportfolio':
+      // RP E-portfolio — Rwanda Polytechnic Student Showcase (Matching Photo 2)
+      innerGraphic = `
+        <rect x="70" y="128" width="660" height="232" rx="14" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1.5"/>
+        <rect x="90" y="146" width="620" height="196" rx="10" fill="#ffffff"/>
+        {/* Top Navbar */}
+        <rect x="90" y="146" width="620" height="30" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+        <text x="110" y="166" fill="#0369a1" font-family="sans-serif" font-size="12" font-weight="800">e-portfolio</text>
+        <text x="320" y="166" fill="#0f172a" font-family="sans-serif" font-size="10" font-weight="700">Home</text>
+        <text x="375" y="166" fill="#64748b" font-family="sans-serif" font-size="10" font-weight="500">Projects</text>
+        <text x="435" y="166" fill="#64748b" font-family="sans-serif" font-size="10" font-weight="500">Portfolios</text>
+        <text x="500" y="166" fill="#64748b" font-family="sans-serif" font-size="10" font-weight="500">Job Board</text>
+
+        {/* Hero Section */}
+        <text x="400" y="210" fill="#1e3a8a" font-family="sans-serif" font-size="18" font-weight="800" text-anchor="middle">Discover Rwanda's Next Innovators</text>
+        <text x="400" y="230" fill="#1e3a8a" font-family="sans-serif" font-size="18" font-weight="800" text-anchor="middle">from Rwanda Polytechnic</text>
+        <text x="400" y="250" fill="#64748b" font-family="sans-serif" font-size="9" font-weight="500" text-anchor="middle">Explore groundbreaking student projects, research, and technical innovations</text>
+
+        {/* CTA Button */}
+        <rect x="345" y="262" width="110" height="24" rx="5" fill="#0284c7"/>
+        <text x="400" y="278" fill="#ffffff" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle">Browse Projects &rarr;</text>
+        
+        {/* Student Project Visual Cards */}
+        <rect x="130" y="295" width="110" height="38" rx="6" fill="#e2e8f0"/>
+        <rect x="255" y="295" width="135" height="38" rx="6" fill="#cbd5e1"/>
+        <rect x="405" y="295" width="135" height="38" rx="6" fill="#94a3b8"/>
+        <rect x="555" y="295" width="110" height="38" rx="6" fill="#64748b"/>
+      `;
+      break;
+
+    case 'gallery-brand-agaciro':
+      // Agaciro Digital Banking Brand — Deep Blue Gradient & Brand Mark (Matching Photo 1)
+      innerGraphic = `
+        <defs>
+          <linearGradient id="brandBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#023e8a"/>
+            <stop offset="50%" stop-color="#0077b6"/>
+            <stop offset="100%" stop-color="#0096c7"/>
+          </linearGradient>
+        </defs>
+        <rect x="70" y="128" width="660" height="232" rx="14" fill="url(#brandBlueGrad)" stroke="#38bdf8" stroke-width="1.5"/>
+        {/* Geometric Monogram Mark */}
+        <g transform="translate(370, 195) scale(1.3)">
+          <path d="M-15 -35 L-5 -35 L-5 35 L-15 35 Z" fill="#ffffff"/>
+          <path d="M-5 -25 L20 -25 L20 -15 L5 -15 L18 0 L5 0 L18 15 L20 15 L20 25 L-5 25 Z" fill="#ffffff" opacity="0.95"/>
+        </g>
+      `;
+      break;
+
     default:
       // PASSE / Access Control & Design Systems
       innerGraphic = `

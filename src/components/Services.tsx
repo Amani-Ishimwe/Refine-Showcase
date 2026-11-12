@@ -125,7 +125,7 @@ const Services: React.FC<ServicesProps> = () => {
             {SERVICE_PACKAGES.map((pkg) => (
               <div
                 key={pkg.id}
-                className={`skeuo-card sky-gradient-subtle p-6 h-full flex flex-col justify-between space-y-6 ${
+                className={`skeuo-card sky-gradient-subtle p-6 h-full flex flex-col justify-between space-y-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ${
                   pkg.isFlagship ? 'ring-2 ring-[#42b4e6]' : ''
                 }`}
               >
